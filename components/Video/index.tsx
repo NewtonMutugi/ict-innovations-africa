@@ -9,7 +9,7 @@ const Video = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <section className={`relative z-10 py-16 md:py-20 lg:py-28 ${isOpen ? "bg-black bg-opacity-50" : ""}`}>
+    <section id="mission" className={`relative z-10 py-16 md:py-20 lg:py-28 ${isOpen ? "bg-black bg-opacity-50" : ""}`}>
       <div className={`container ${isOpen ? "pointer-events-none" : ""}`}>
         <SectionTitle
           title="Our Mission"

@@ -15,16 +15,16 @@ const menuData = [
   },
   {
     id: 3,
-    title: "Video",
-    path: "/#video",
+    title: "Our Mission",
+    path: "/#mission",
     newTab: false,
   },
-  {
-    id: 4,
-    title: "About",
-    path: "/#about",
-    newTab: false,
-  },
+  // {
+  //   id: 4,
+  //   title: "Gurantee",
+  //   path: "/#about",
+  //   newTab: false,
+  // },
   {
     id: 5,
     title: "Pricing",
