@@ -15,7 +15,7 @@ const menuData = [
   },
   {
     id: 3,
-    title: "Our Mission",
+    title: "Mission",
     path: "/#mission",
     newTab: false,
   },
