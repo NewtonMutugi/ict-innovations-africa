@@ -11,13 +11,13 @@ const Pricing = () => {
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="Simple and Affordable Pricing"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Recap Of What You Are Getting Access To Today..."
+          paragraph="Here is a recap of what you are getting at this incredible price!"
           center
           width="665px"
         />
 
-        <div className="w-full">
+        {/* <div className="w-full">
           <div
             className="wow fadeInUp mb-8 flex justify-center md:mb-12 lg:mb-16"
             data-wow-delay=".1s"
@@ -58,48 +58,54 @@ const Pricing = () => {
               Yearly
             </span>
           </div>
-        </div>
-
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          <PricingBox
-            packageName="Lite"
-            price={isMonthly ? "40" : "120"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="inactive" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
-          </PricingBox>
-          <PricingBox
-            packageName="Basic"
-            price={isMonthly ? "399" : "789"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
-          </PricingBox>
-          <PricingBox
-            packageName="Plus"
-            price={isMonthly ? "589" : "999"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="active" />
-          </PricingBox>
+        </div> */}
+        {/* <div className="-mx-4 flex flex-wrap justify-center">
+          <div className="w-full px-4 md:w-1/2 lg:w-1/3">
+            <PricingBox
+              packageName="Basic"
+              price={isMonthly ? "399" : "789"}
+              duration={isMonthly ? "mo" : "yr"}
+              subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            >
+              <OfferList text="All UI Components" status="active" />
+              <OfferList text="Use with Unlimited Projects" status="active" />
+              <OfferList text="Commercial Use" status="active" />
+              <OfferList text="Email Support" status="active" />
+              <OfferList text="Lifetime Access" status="active" />
+              <OfferList text="Free Lifetime Updates" status="inactive" />
+            </PricingBox>
+          </div>
+        </div> */}
+        <div className="-mx-4 flex flex-wrap justify-center">
+          <div className="w-full px-4 md:w-2/3 lg:w-2/3">
+            <PricingBox
+              packageName="Basic"
+              price={isMonthly ? "49" : "49"}
+              duration={isMonthly ? " One time Payment" : " One time Payment"}
+              subtitle="AI Website Builder (Commercial License)."
+            >
+              <div className="flex flex-row">
+                <div>
+                  <OfferList text="Create 50 Websites" status="active" />
+                  <OfferList text="10 Workspaces" status="active" />
+                  <OfferList text="3 Team Collab Accounts" status="active" />
+                  <OfferList text="AI Website Builder" status="active" />
+                </div>
+                <div>
+                  <OfferList text="AI Image Designer" status="active" />
+                  <OfferList text="Drag-and-Drop Editor" status="active" />
+                  <OfferList text="AI Redesign Assistant" status="active" />
+                  <OfferList text="100's of Templates" status="active" />
+                </div>
+                <div>
+                  <OfferList text="Download HTML" status="active" />
+                  <OfferList text="Host Anywhere" status="active" />
+                  <OfferList text="AI Website Chatbot" status="active" />
+                  <OfferList text="AI Content writer" status="active" />
+                </div>
+              </div>
+            </PricingBox>
+          </div>
         </div>
       </div>
 
