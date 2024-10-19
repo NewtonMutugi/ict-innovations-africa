@@ -3,18 +3,17 @@
 import Image from "next/image";
 import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
-
 import ModalVideo from "react-modal-video";
 
 const Video = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <section className="relative z-10 py-16 md:py-20 lg:py-28">
-      <div className="container">
+    <section className={`relative z-10 py-16 md:py-20 lg:py-28 ${isOpen ? "bg-black bg-opacity-50" : ""}`}>
+      <div className={`container ${isOpen ? "pointer-events-none" : ""}`}>
         <SectionTitle
-          title="We are ready to help"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Our Mission"
+          paragraph="To revolutionize web development by using AI to effortlessly create stunning websites, empowering users to build their online presence with ease."
           center
           mb="80px"
         />
@@ -49,12 +48,16 @@ const Video = () => {
         </div>
       </div>
 
+      {isOpen && (
+        <div className="fixed inset-0 z-30 bg-black bg-opacity-50 transition-opacity"></div>
+      )}
+
       <ModalVideo
-        channel="youtube"
+        channel="custom"
         autoplay={true}
         start={true}
         isOpen={isOpen}
-        videoId="L61p2uyiMSo"
+        url="/videos/AI_salesvideo.mp4"
         onClose={() => setOpen(false)}
       />
 
