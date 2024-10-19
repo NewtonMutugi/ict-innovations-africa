@@ -18,12 +18,9 @@ const Hero = () => {
                   Create Stunning AI Websites On Any Topic in Minutes...
                 </h1>
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                  WebGenerator.ai is a cutting-edge platform designed to
-                  transform the way websites are created. Our AI-powered
-                  technology enables businesses, individuals, and entrepreneurs
-                  to build stunning, fully functional websites in a matter of
-                  seconds, without the need for any technical skills or coding
-                  experience.
+                  WebGenerator.ai is an innovative platform that uses AI to help
+                  businesses and individuals create stunning, fully functional
+                  websites in seconds—no technical skills or coding required.
                 </p>
                 <div className="mb-5 text-lg font-bold leading-tight text-black dark:text-white sm:text-base sm:leading-tight md:text-lg   md:leading-tight">
                   Unlock The App For A One-Time Price of $49!

@@ -70,8 +70,8 @@ const Header = () => {
                   height={30}
                   className="hidden w-full dark:block"
                 /> */}
-                <h2 className="text-lg font-bold text-primary dark:text-white">
-                  🤖 AI Website Generator
+                <h2 className="text-2xl font-bold text-primary dark:text-white">
+                  WebGenerator.ai
                 </h2>
               </Link>
             </div>
