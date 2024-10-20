@@ -10,6 +10,7 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
+import Faq from "@/components/Faq";
 
 export const metadata: Metadata = {
   title: "AI Web Generator",
@@ -30,6 +31,7 @@ export default function Home() {
       {/* <Testimonials /> */}
       <Pricing />
       <AboutSectionOne />
+      <Faq />
       {/* <Blog /> */}
       <Contact />
     </>
