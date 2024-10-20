@@ -8,7 +8,7 @@ import {
 const Faq = () => {
   return (
     <section id="faq">
-      <div className="py-8 md:py-16">
+      <div className="border-b border-body-color/[.15] py-8 pb-16 dark:border-white/[.15] md:py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
