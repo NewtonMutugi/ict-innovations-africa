@@ -57,3 +57,4 @@ const AccordionItem = ({ title, body }) => (
 );
 
 export default Faq;
+  
