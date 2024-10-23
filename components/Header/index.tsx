@@ -71,7 +71,7 @@ const Header = () => {
                   className="hidden w-full dark:block"
                 /> */}
                 <h2 className="text-2xl font-bold text-primary dark:text-white">
-                  WebGenerator.ai
+                  ICTInnovations.africa
                 </h2>
               </Link>
             </div>
