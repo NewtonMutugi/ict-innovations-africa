@@ -1,12 +1,20 @@
 import { Menu } from "@/types/menu";
 
 const menuData = [
-  // {
-  //   id: 1,
-  //   title: "Home",
-  //   path: "#home",
-  //   newTab: false,
-  // },
+  {
+    id: 0,
+    title: "Products",
+    // path: "#home",
+    newTab: true,
+    submenu: [
+      {
+        id: 1,
+        title: "AI Website Generator",
+        path: "https://ramahconsultancy.com",
+        newTab: true,
+      },
+    ],
+  },
   {
     id: 1,
     title: "Mission",

@@ -140,8 +140,8 @@ const Header = () => {
                                 </svg>
                               </span>
                             </p>
-                            {/* <div
-                              className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
+                            <div
+                              className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 lg:invisible group-hover:opacity-100 dark:bg-dark lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
@@ -150,11 +150,14 @@ const Header = () => {
                                   href={submenuItem.path}
                                   key={index}
                                   className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+                                  target={
+                                    submenuItem.newTab ? "_blank" : "_self"
+                                  }
                                 >
                                   {submenuItem.title}
                                 </Link>
                               ))}
-                            </div> */}
+                            </div>
                           </>
                         )}
                       </li>
