@@ -10,7 +10,7 @@ const menuData = [
       {
         id: 1,
         title: "AI Website Generator",
-        path: "https://ramahconsultancy.com",
+        path: "https://webgenerator.ai",
         newTab: true,
       },
     ],
