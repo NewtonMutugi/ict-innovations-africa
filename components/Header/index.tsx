@@ -70,7 +70,7 @@ const Header = () => {
                   height={30}
                   className="hidden w-full dark:block"
                 /> */}
-                <h2 className="mr-4 flex-wrap text-2xl font-bold text-primary dark:text-white">
+                <h2 className="flex-wrap text-2xl font-bold text-primary dark:text-white">
                   ICTInnovations.africa
                 </h2>
               </Link>
@@ -114,7 +114,7 @@ const Header = () => {
                           <Link
                             href={menuItem.path}
                             // scroll={false} // Prevent Next.js from scrolling to top
-                            className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
+                            className={`flex py-2 text-base  lg:inline-flex  lg:py-6 ${
                               usePathName === menuItem.path
                                 ? "text-primary dark:text-white"
                                 : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
@@ -126,7 +126,7 @@ const Header = () => {
                           <>
                             <p
                               onClick={() => handleSubmenu(index)}
-                              className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
+                              className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white  lg:inline-flex  lg:py-6"
                             >
                               {menuItem.title}
                               <span className="pl-3">
@@ -165,7 +165,7 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              {/* <div className="flex items-center justify-end pr-16 lg:pr-0">
+              <div className="flex items-center justify-end pr-16 lg:pr-0">
                 <Link
                   href="https://app.webgenerator.ai/auth/login"
                   className="hidden px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white md:block"
@@ -181,7 +181,7 @@ const Header = () => {
                 <div>
                   <ThemeToggler />
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
