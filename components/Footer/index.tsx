@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
-                  <Image
+                  {/* <Image
                     src="/images/logo/logo-2.svg"
                     alt="logo"
                     className="w-full dark:hidden"
@@ -27,12 +27,17 @@ const Footer = () => {
                     className="hidden w-full dark:block"
                     width={140}
                     height={30}
-                  />
+                  /> */}
+                  <h2 className="text-2xl font-bold text-primary dark:text-white">
+                    ICTInnovations.africa
+                  </h2>
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Innovative platform that uses AI to help businesses and
-                  individuals create stunning, fully functional websites in
-                  seconds no technical skills or coding required.
+                  At ICT Innovations Africa, we harness the power of technology
+                  to drive sustainable growth and transformation across various
+                  sectors. Our mission is to deliver innovative solutions that
+                  empower businesses and communities to thrive in the digital
+                  age.
                 </p>
                 <div className="flex items-center">
                   <a
