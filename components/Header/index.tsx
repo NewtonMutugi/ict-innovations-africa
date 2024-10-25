@@ -70,7 +70,7 @@ const Header = () => {
                   height={30}
                   className="hidden w-full dark:block"
                 /> */}
-                <h2 className="flex-wrap text-2xl font-bold text-primary dark:text-white">
+                <h2 className="flex-wrap text-2xl font-bold text-primary dark:text-white mr-4">
                   ICTInnovations.africa
                 </h2>
               </Link>
