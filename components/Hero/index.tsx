@@ -15,15 +15,17 @@ const Hero = () => {
                 data-wow-delay=".2s"
               >
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Create Stunning AI Websites On Any Topic in Minutes...
+                  Welcome to ICT Innovations Africa
                 </h1>
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                  WebGenerator.ai is an innovative platform that uses AI to help
-                  businesses and individuals create stunning, fully functional
-                  websites in seconds—no technical skills or coding required.
+                  At ICT Innovations Africa, we harness the power of technology
+                  to drive sustainable growth and transformation across various
+                  sectors. Our mission is to deliver innovative solutions that
+                  empower businesses and communities to thrive in the digital
+                  age.
                 </p>
                 <div className="mb-5 text-lg font-bold leading-tight text-black dark:text-white sm:text-base sm:leading-tight md:text-lg   md:leading-tight">
-                  Unlock The App For A One-Time Price of $49!
+                  We are excited to have you on board!
                 </div>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   {/* <Link
@@ -36,7 +38,7 @@ const Hero = () => {
                     href="/signup"
                     className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
                   >
-                    Get AI Website Builder Here
+                    Who we are
                   </Link>
                 </div>
               </div>
