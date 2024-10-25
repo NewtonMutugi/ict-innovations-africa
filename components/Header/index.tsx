@@ -70,7 +70,7 @@ const Header = () => {
                   height={30}
                   className="hidden w-full dark:block"
                 /> */}
-                <h2 className="flex-wrap text-2xl font-bold text-primary dark:text-white mr-4">
+                <h2 className="mr-4 flex-wrap text-2xl font-bold text-primary dark:text-white">
                   ICTInnovations.africa
                 </h2>
               </Link>
@@ -165,8 +165,8 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
-                {/* <Link
+              {/* <div className="flex items-center justify-end pr-16 lg:pr-0">
+                <Link
                   href="https://app.webgenerator.ai/auth/login"
                   className="hidden px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white md:block"
                 >
@@ -177,11 +177,11 @@ const Header = () => {
                   className="ease-in-up no-wrap hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-btn transition duration-300 hover:bg-opacity-90 hover:shadow-btn-hover md:block md:px-9 lg:px-6 xl:px-9"
                 >
                   Register
-                </Link> */}
+                </Link>
                 <div>
                   <ThemeToggler />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
