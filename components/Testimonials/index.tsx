@@ -41,7 +41,7 @@ const Testimonials = () => {
       <div className="container">
         <SectionTitle
           title="What Our Users Says"
-          paragraph="Here are some of the testimonials from our satisfied customers."
+          paragraph="Here are some of the testimonials from our satisfied customers!"
           center
         />
 
