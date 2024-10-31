@@ -12,8 +12,15 @@ const eventData: Event[] = [
       image: "/images/blog/author-01.png",
       designation: "Graphic Designer",
     },
-    tags: ["creative"],
+    tags: ["online"],
     eventDate: "To be Announced",
+    eventDetails: {
+      description: "Preparing the Youth for the Future",
+      image: "/images/blog/blog-01.jpg",
+      imageDescription: "Preparing the Youth for the Future",
+      image2: "/images/blog/blog-01.jpg",
+      image2Description: "Preparing the Youth for the Future",
+    },
   },
   // {
   //   id: 2,
