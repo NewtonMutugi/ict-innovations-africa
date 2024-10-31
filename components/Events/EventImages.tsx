@@ -15,7 +15,7 @@ const EventImages: React.FC<EventImagesProps> = ({ eventImages }) => {
       {eventImages.map((eventImage, index) => (
         <div
           key={index}
-          className="wow fadeInUp mb-8 w-full px-4 sm:w-1/2 lg:w-1/3"
+          className="wow fadeInUp mb-8 w-full px-4 sm:w-1/2 lg:w-1/2"
           data-wow-delay=".15s"
         >
           <div className="relative mb-6 h-64 w-full">

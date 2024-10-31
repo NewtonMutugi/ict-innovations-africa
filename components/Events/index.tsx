@@ -11,7 +11,7 @@ const Events = () => {
       <div className="container">
         <SectionTitle
           title="Our Latest Events"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="Here are some of our latest upcoming events and engagements. This would be a perfect opportunity to learn more about what we do and what we are all about."
           center
         />
 

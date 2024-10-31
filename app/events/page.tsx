@@ -2,6 +2,7 @@ import SingleEvent from "@/components/Events/SingleEvent";
 import eventData from "@/components/Events/eventData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
+import SectionTitle from "@/components/Common/SectionTitle";
 
 export const metadata: Metadata = {
   title: "Event Page | Free Next.js Template for Startup and SaaS",
@@ -12,12 +13,16 @@ export const metadata: Metadata = {
 const Events = () => {
   return (
     <>
-      <Breadcrumb
+      {/* <Breadcrumb
         pageName="Events"
-        description="Here are some of our latest upcoming and engagements"
-      />
-
+        description="Here are some of our latest upcoming events and engagements. This would be a perfect opportunity to learn more about what we do and what we are all about."
+      /> */}
       <section className="pb-[120px] pt-[120px]">
+        <SectionTitle
+          title="Our Latest Events"
+          paragraph="Here are some of our latest upcoming events and engagements. This would be a perfect opportunity to learn more about what we do and what we are all about."
+          center
+        />
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             {eventData.map((event) => (
