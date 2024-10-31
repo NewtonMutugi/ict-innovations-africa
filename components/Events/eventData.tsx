@@ -6,7 +6,7 @@ const eventData: Event[] = [
     title: "Preparing the Youth for the Future",
     paragraph:
       "Join us in an insightful session designed to empower and guide young leaders on using technology and becoming early adopters.",
-    image: "/images/blog/blog-01.jpg",
+    image: "/images/events/monetize_ai.jpg",
     venue: {
       name: "Online",
       image: "/images/blog/author-01.png",
