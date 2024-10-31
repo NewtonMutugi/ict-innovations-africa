@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const Event = () => {
+const Events = () => {
   return (
     <>
       <Breadcrumb
@@ -31,7 +31,7 @@ const Event = () => {
             ))}
           </div>
 
-          <div
+          {/* <div
             className="wow fadeInUp -mx-4 flex flex-wrap"
             data-wow-delay=".15s"
           >
@@ -92,11 +92,11 @@ const Event = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
   );
 };
 
-export default Event;
+export default Events;

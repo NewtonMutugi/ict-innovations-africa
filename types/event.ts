@@ -1,4 +1,4 @@
-type Author = {
+type Venue = {
   name: string;
   image: string;
   designation: string;
@@ -9,7 +9,7 @@ export type Event = {
   title: string;
   paragraph: string;
   image: string;
-  author: Author;
+  venue: Venue;
   tags: string[];
-  publishDate: string;
+  eventDate: string;
 };
