@@ -1,4 +1,5 @@
 import { Menu } from "@/types/menu";
+import path from "path";
 
 const menuData = [
   {
@@ -43,6 +44,12 @@ const menuData = [
     id: 6,
     title: "Testimonials",
     path: "/#testimonials",
+    newTab: false,
+  },
+  {
+    id: 7,
+    title: "Events",
+    path: "/events",
     newTab: false,
   },
   {
