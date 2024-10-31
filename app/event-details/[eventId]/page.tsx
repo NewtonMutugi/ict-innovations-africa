@@ -1,10 +1,10 @@
 "use client";
 import SharePost from "@/components/Events/SharePost";
 import TagButton from "@/components/Events/TagButton";
-import Image from "next/image";
 import eventData from "@/components/Events/eventData";
 import { useParams } from "next/navigation";
 import { Metadata } from "next";
+import EventImages from "@/components/Events/EventImages";
 
 // export const metadata: Metadata = {
 //   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
@@ -78,68 +78,9 @@ const EventDetailsPage = () => {
                   </div>
                 </div>
                 <div>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    {event.eventDetails.description}
-                  </p>
-                  <div className="mb-10 w-full overflow-hidden rounded">
-                    <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
-                      <Image
-                        src="/images/blog/blog-details-02.jpg"
-                        alt="image"
-                        fill
-                        className="object-cover object-center"
-                      />
-                    </div>
-                  </div>
-                  <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Quis enim lobortis scelerisque fermentum. Neque
-                    sodales ut etiam sit amet. Ligula ullamcorper
-                    <strong className="text-primary dark:text-white">
-                      malesuada
-                    </strong>
-                    proin libero nunc consequat interdum varius. Quam
-                    pellentesque nec nam aliquam sem et tortor consequat.
-                    Pellentesque adipiscing commodo elit at imperdiet.
-                  </p>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Semper auctor neque vitae tempus quam pellentesque nec.
-                    <span className="text-primary underline dark:text-white">
-                      Amet dictum sit amet justo
-                    </span>
-                    donec enim diam. Varius sit amet mattis vulputate enim nulla
-                    aliquet porttitor. Odio pellentesque diam volutpat commodo
-                    sed.
-                  </p>
-                  <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
-                    Digital marketplace for Ui/Ux designers.
-                  </h3>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    consectetur adipiscing elit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    mattis vulputate cupidatat.
-                  </p>
-                  <ul className="mb-10 list-inside list-disc text-body-color">
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Consectetur adipiscing elit in voluptate velit.
-                    </li>
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Mattis vulputate cupidatat.
-                    </li>
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Vulputate enim nulla aliquet porttitor odio pellentesque
-                    </li>
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Ligula ullamcorper malesuada proin
-                    </li>
-                  </ul>
                   <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
                     <p className="text-center text-base font-medium italic text-body-color">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod incididunt utionals labore et dolore magna
-                      aliqua. Quis lobortis scelerisque fermentum, The Neque ut
-                      etiam sit amet.
+                      {event.paragraph}
                     </p>
                     <span className="absolute left-0 top-0 z-[-1]">
                       <svg
@@ -282,20 +223,23 @@ const EventDetailsPage = () => {
                       </svg>
                     </span>
                   </div>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    consectetur adipiscing elit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    mattis vulputate cupidatat.
+                  <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                    {event.description}
                   </p>
+
+                  <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
+                    <EventImages eventImages={[...event.eventImages]} />
+                  </div>
+
                   <div className="items-center justify-between sm:flex">
                     <div className="mb-5">
                       <h4 className="mb-3 text-sm font-medium text-body-color">
                         Popular Tags :
                       </h4>
                       <div className="flex items-center">
-                        <TagButton text="Design" />
-                        <TagButton text="Development" />
-                        <TagButton text="Info" />
+                        {event.tags.map((tag) => (
+                          <TagButton key={tag} text={tag} />
+                        ))}
                       </div>
                     </div>
                     <div className="mb-5">

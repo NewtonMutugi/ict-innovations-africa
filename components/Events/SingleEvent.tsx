@@ -13,7 +13,6 @@ const SingleEvent = ({ event }: { event: Event }) => {
   }
 
   const handleEventDetailsClick = (eventId: number) => {
-    console.log("Single Event ID", eventId);
     router.push(`/event-details/${eventId}`); // Navigate to event details page
   };
 

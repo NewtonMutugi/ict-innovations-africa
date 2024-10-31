@@ -4,12 +4,10 @@ type Venue = {
   designation: string;
 };
 
-type EventDetails = {
-  description: string;
+export type EventImage = {
   image?: string;
+  imageTitle?: string;
   imageDescription?: string;
-  image2?: string;
-  image2Description?: string;
 };
 
 export type Event = {
@@ -18,8 +16,10 @@ export type Event = {
   paragraph: string;
   image: string;
   venue: Venue;
+  type: string;
   tags: string[];
+  description: string;
   eventDate: string;
-  eventDetails: EventDetails;
+  eventImages: EventImage[];
   registrationLink?: string;
 };

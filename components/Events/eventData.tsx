@@ -12,15 +12,26 @@ const eventData: Event[] = [
       image: "/images/blog/author-01.png",
       designation: "Graphic Designer",
     },
-    tags: ["online"],
+    type: "online",
+    tags: ["AI Monetization", "technology", "future"],
     eventDate: "To be Announced",
-    eventDetails: {
-      description: "Preparing the Youth for the Future",
-      image: "/images/blog/blog-01.jpg",
-      imageDescription: "Preparing the Youth for the Future",
-      image2: "/images/blog/blog-01.jpg",
-      image2Description: "Preparing the Youth for the Future",
-    },
+    description:
+      "This session will equip participants with actionable strategies to navigate career path selection and cultivate life skills essential for professional and personal growth.\nParticipants will learn how to leverage AI for creating dynamic presentations, summarizing complex content, and extracting key insights from documents, including PDFs and YouTube videos. Discover how these tools can make learning more efficient and engaging.\nWe’ll also explore the monetization of AI, offering insights on how to capitalize on AI as early adopters, including creating visually stunning websites through AI-driven solutions.",
+    eventImages: [
+      {
+        image: "/images/events/enhancinglearningwithAI.jpg",
+
+        imageTitle: "Enhancing Learning with AI",
+        imageDescription:
+          "Streamline your studies with AI tools that make content accessible, engaging, and easy to manage.",
+      },
+      {
+        image: "/images/events/monetize_ai.jpg",
+        imageTitle: "Monetizing AI",
+        imageDescription:
+          "Discover how to create visually stunning websites through AI-driven solutions.",
+      },
+    ],
   },
   // {
   //   id: 2,
