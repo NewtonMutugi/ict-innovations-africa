@@ -15,7 +15,6 @@ import EventImages from "@/components/Events/EventImages";
 const EventDetailsPage = () => {
   const params = useParams();
   const eventId = params.eventId as string; // Access the eventId from params
-  console.log("Event ID", eventId);
 
   const event = eventData.find((event) => event.id === parseInt(eventId, 10));
   if (!event) {
@@ -70,7 +69,8 @@ const EventDetailsPage = () => {
                   </div>
                   <div className="mb-5">
                     <a
-                      href="#0"
+                      href={event.registrationLink}
+                      target="_blank"
                       className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
                     >
                       Register for the event

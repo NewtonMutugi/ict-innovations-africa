@@ -32,6 +32,7 @@ const eventData: Event[] = [
           "Discover how to create visually stunning websites through AI-driven solutions.",
       },
     ],
+    registrationLink: "https://forms.gle/QwHoJ7adbv1vJzDk9",
   },
   // {
   //   id: 2,
