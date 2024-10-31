@@ -6,10 +6,10 @@ type Venue = {
 
 type EventDetails = {
   description: string;
-  image: string;
-  imageDescription: string;
-  image2: string;
-  image2Description: string;
+  image?: string;
+  imageDescription?: string;
+  image2?: string;
+  image2Description?: string;
 };
 
 export type Event = {
@@ -21,4 +21,5 @@ export type Event = {
   tags: string[];
   eventDate: string;
   eventDetails: EventDetails;
+  registrationLink?: string;
 };
