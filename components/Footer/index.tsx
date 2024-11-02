@@ -33,11 +33,13 @@ const Footer = () => {
                   </h2>
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  At ICT Innovations Africa, we harness the power of technology
-                  to drive sustainable growth and transformation across various
-                  sectors. Our mission is to deliver innovative solutions that
-                  empower businesses and communities to thrive in the digital
-                  age.
+                  At ICT Consultants Ltd, we are passionate about transforming
+                  organizations through technology. Whether you’re looking to
+                  establish an online presence, automate workflows, or implement
+                  a forward-thinking AI strategy, our team is here to help you
+                  every step of the way. Partner with us to drive innovation,
+                  achieve scalability, and future-proof your business in today’s
+                  dynamic digital environment.
                 </p>
                 <div className="flex items-center">
                   <a
@@ -169,34 +171,49 @@ const Footer = () => {
             </div> */}
 
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
-              <div className="mb-12 lg:mb-16">
+              <div className="mb-12 lg:mb-16 ">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Support & Help
+                  Contact Us
                 </h2>
-                <ul>
+                <ul className="flex flex-col content-start">
                   <li>
-                    <a
-                      href="/#contact"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
-                    >
-                      Contact us
-                    </a>
+                    <div className="flex flex-row content-start justify-start align-top ">
+                      <Image
+                        src="/images/about/location-pin.svg"
+                        width={25}
+                        height={25}
+                        alt="location-pin"
+                      />
+                      <p className="mb-4 ml-2 flex flex-col content-start  text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary">
+                        Kugeria Rd, Behind Golden Eagle Spur, Kiambu, Kenya
+                      </p>
+                    </div>
                   </li>
                   <li>
-                    <a
-                      href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
-                    >
-                      Terms of Use
-                    </a>
+                    <div className="flex flex-row">
+                      <Image
+                        src="/images/about/phone.svg"
+                        width={25}
+                        height={25}
+                        alt="mail"
+                      />
+                      <p className="mb-4 ml-2  text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary">
+                        +254790445566
+                      </p>
+                    </div>
                   </li>
                   <li>
-                    <a
-                      href="/#about"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
-                    >
-                      About us
-                    </a>
+                    <div className="flex flex-row">
+                      <Image
+                        src="/images/about/mail.svg"
+                        width={25}
+                        height={25}
+                        alt="mail"
+                      />
+                      <p className="mb-4 ml-2  text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary">
+                        info@ictinnovations.africa
+                      </p>
+                    </div>
                   </li>
                 </ul>
               </div>
