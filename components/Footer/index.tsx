@@ -184,7 +184,7 @@ const Footer = () => {
                         height={25}
                         alt="location-pin"
                       />
-                      <p className="mb-4 ml-2 flex flex-col content-start  text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary">
+                      <p className="mb-4 ml-2 flex flex-col  text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary">
                         Kugeria Rd, Behind Golden Eagle Spur, Kiambu, Kenya
                       </p>
                     </div>
