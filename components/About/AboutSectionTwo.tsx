@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
 
 const AboutSectionTwo = () => {
+  const handleLearnClick = () => {
+    window.location.href = "/about";
+  };
   return (
     <section className="py-16 md:py-20 lg:py-28" id="about">
       <div className="container">
@@ -72,6 +76,14 @@ const AboutSectionTwo = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="my-6 flex justify-center ">
+          <button
+            className="flex w-1/2 items-center justify-center rounded-lg bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+            onClick={handleLearnClick}
+          >
+            Learn More
+          </button>
         </div>
       </div>
     </section>

@@ -5,13 +5,11 @@ const AboutSectionThree = () => {
   return (
     <section className="md:py-15 py-8 lg:py-14" id="about">
       <div className="container">
+        <SectionTitle title="Who we are" paragraph="" mb="44px" center />
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4 lg:w-1/2">
             <div className="wow fadeInUp max-w-[470px]" data-wow-delay=".2s">
               <div className="mb-9">
-                <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Who We Are
-                </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
                   ICT Consultants Ltd is a registered company under the laws of
                   Kenya that was registered in April 2008 with a mission to

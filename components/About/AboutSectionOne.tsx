@@ -9,14 +9,14 @@ const checkIcon = (
 
 const AboutSectionOne = () => {
   const List = ({ text, title }) => (
-    <p className="mb-5 flex items-center text-lg font-medium text-body-color">
+    <div className="mb-5 flex items-center text-lg font-medium text-body-color">
       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
         {checkIcon}
       </span>
       <p>
         <strong>{title}:</strong> {text}
       </p>
-    </p>
+    </div>
   );
 
   return (
@@ -64,6 +64,72 @@ const AboutSectionOne = () => {
                     <List text="Rich documentation" />
                     <List text="Developer friendly" />
                   </div> */}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
+            <div className="-mx-4 flex flex-wrap items-center">
+              <div className="w-full px-4 lg:w-full">
+                <SectionTitle
+                  title="Our Approach"
+                  paragraph=""
+                  mb="44px"
+                  center
+                />
+                <div
+                  className="wow fadeInUp mb-12 flex  lg:mb-0 "
+                  data-wow-delay=".15s"
+                >
+                  <div className="flex flex-wrap justify-center lg:w-1/2">
+                    <div className="flex flex-col justify-center">
+                      <List
+                        title="Consultation and Analysis"
+                        text="Understanding client objectives and assessing their current technological landscape."
+                      />
+                      <List
+                        title="Customized Strategy Development"
+                        text="Crafting tailored strategies that align with business goals."
+                      />
+                      <List
+                        title="Implementation and Integration"
+                        text="Executing solutions with an emphasis on seamless integration and minimal disruption."
+                      />
+                      <List
+                        title="Training and Support"
+                        text="Providing ongoing support and training to ensure clients can maximize the benefits of our solutions."
+                      />
+                      <List
+                        title="Monitoring and Optimization"
+                        text="Continuously evaluating and enhancing solutions to adapt to changing needs and technological advancements."
+                      />
+                    </div>
+
+                    {/* <div className="w-full px-3 sm:w-1/2 ">
+                    <List text="Next.js" />
+                    <List text="Rich documentation" />
+                    <List text="Developer friendly" />
+                  </div> */}
+                  </div>
+                  <div className="w-full px-4 lg:w-1/2">
+                    <div
+                      className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] max-w-[500px] text-center lg:m-0"
+                      data-wow-delay=".15s"
+                    >
+                      <Image
+                        src="/images/about/our-approach.svg"
+                        alt="about image"
+                        fill
+                        className="drop-shadow-three dark:hidden dark:drop-shadow-none"
+                      />
+                      <Image
+                        src="/images/about/our-approach.svg"
+                        alt="about image"
+                        fill
+                        className="hidden drop-shadow-three dark:block dark:drop-shadow-none"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
