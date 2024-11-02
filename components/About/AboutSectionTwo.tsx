@@ -37,12 +37,15 @@ const AboutSectionTwo = () => {
                   Who We Are
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  ICT Innovations Africa is a leading technology solutions
-                  provider dedicated to fostering innovation and digital
-                  transformation across the African continent. Our team of
-                  experts combines local insights with global best practices to
-                  develop tailored solutions that meet the unique needs of our
-                  clients.
+                  ICT Consultants Ltd is a registered company under the laws of
+                  Kenya that was registered in April 2008 with a mission to
+                  drive digital transformation. ICT Consultants Ltd is a premier
+                  technology consulting firm that combines expertise in web
+                  solutions, educational technology, and artificial intelligence
+                  to deliver solutions that fuel business growth. We partner
+                  with organizations to streamline operations, optimize their
+                  digital presence, and align technological strategies with
+                  business objectives.
                 </p>
               </div>
               <div className="mb-9">
@@ -50,8 +53,9 @@ const AboutSectionTwo = () => {
                   Our Vision
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  To be the foremost catalyst for technological advancement and
-                  innovation in Africa.
+                  To be the most trusted provider of digital and AI solutions in
+                  Africa, leading with excellence, innovation, client success,
+                  and societal impact.
                 </p>
               </div>
               <div className="mb-1">
@@ -59,9 +63,11 @@ const AboutSectionTwo = () => {
                   Our Mission
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  To provide cutting-edge ICT solutions that enable businesses
-                  and communities to leverage technology for sustainable
-                  development.
+                  To empower organizations with innovative technology solutions
+                  that enable growth, enhance operational efficiency, and adapt
+                  to an ever-evolving digital landscape. We aim to transform
+                  businesses by simplifying complex technological challenges and
+                  delivering sustainable, impactful results.
                 </p>
               </div>
             </div>
