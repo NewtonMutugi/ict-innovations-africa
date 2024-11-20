@@ -8,7 +8,7 @@ const testimonialData: Testimonial[] = [
     name: "Nakiya Joy",
     designation: "Founder @TailGrids",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "ICT Innovations Africa transformed our operations with cutting-edge tech solutions, boosting efficiency and innovation",
     image: "/images/testimonials/auth-01.png",
     star: 5,
   },
@@ -17,7 +17,7 @@ const testimonialData: Testimonial[] = [
     name: "Devid Weilium",
     designation: "Founder @UIdeck",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Their expertise in digital transformation is unmatched—our systems are now seamless and scalable.",
     image: "/images/testimonials/auth-02.png",
     star: 5,
   },
@@ -26,7 +26,7 @@ const testimonialData: Testimonial[] = [
     name: "Lethium Frenci",
     designation: "Founder @Lineicons",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "A reliable partner for innovative IT solutions; they deliver beyond expectations.",
     image: "/images/testimonials/auth-03.png",
     star: 5,
   },
