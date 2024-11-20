@@ -34,33 +34,42 @@ const eventData: Event[] = [
     ],
     registrationLink: "https://forms.gle/QwHoJ7adbv1vJzDk9",
   },
-  // {
-  //   id: 2,
-  //   title: "9 simple ways to improve your design skills",
-  //   paragraph:
-  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
-  //   image: "/images/blog/blog-02.jpg",
-  //   author: {
-  //     name: "Musharof Chy",
-  //     image: "/images/blog/author-02.png",
-  //     designation: "Content Writer",
-  //   },
-  //   tags: ["computer"],
-  //   publishDate: "2025",
-  // },
-  // {
-  //   id: 3,
-  //   title: "Tips to quickly improve your coding speed.",
-  //   paragraph:
-  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
-  //   image: "/images/blog/blog-03.jpg",
-  //   author: {
-  //     name: "Lethium Deo",
-  //     image: "/images/blog/author-03.png",
-  //     designation: "Graphic Designer",
-  //   },
-  //   tags: ["design"],
-  //   publishDate: "2025",
-  // },
+  {
+    id: 2,
+    title:
+      "Launch of the Africa Centre of Competence for Digital & AI Skilling Project",
+    paragraph:
+      "The Africa Centre for Digital and Artificial Intelligence (AI) Skilling, officially inaugurated on October 11, 2024 at the Kenya School of Government in Nairobi is scheduled to be launched on December 6, focusing on enhancing digital competencies and service delivery. The project aims to foster innovation and improve public service efficiency through digital transformation. For more updates on this impactful initiative, listen to our part one of the deep dive.",
+    image: "/images/events/AfricaCentreOfCompetenceForDigital&AISkilling.jpeg",
+    venue: {
+      name: "the Kenya School of Government in Nairobi",
+      image: "/images/blog/author-01.png",
+      designation: "Graphic Designer",
+    },
+    type: "Physical",
+    tags: [
+      "AfricaDigitalCenter",
+      "AfricaCenterforCompetence",
+      "AiforAfrica",
+      "DigitalTransformation",
+      "AISkilling",
+      "AfricaDigitalFuture",
+      "NuruTrust",
+    ],
+    eventDate: "6th December 2024",
+    description:
+      "The Africa Centre for Digital and Artificial Intelligence (AI) Skilling, officially inaugurated on October 11, 2024 at the Kenya School of Government in Nairobi is scheduled to be launched on December 6, focusing on enhancing digital competencies and service delivery. The project aims to foster innovation and improve public service efficiency through digital transformation. For more updates on this impactful initiative, listen to our part one of the deep dive.",
+    eventImages: [
+      {
+        image:
+          "/images/events/AfricaCentreOfCompetenceForDigital&AISkilling.jpeg",
+
+        imageTitle: "Enhancing Learning with AI",
+        imageDescription:
+          "Streamline your studies with AI tools that make content accessible, engaging, and easy to manage.",
+      },
+    ],
+    registrationLink: "https://fb.watch/vZxtGqlNBG/",
+  },
 ];
 export default eventData;
