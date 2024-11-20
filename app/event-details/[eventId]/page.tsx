@@ -217,9 +217,10 @@ const EventDetailsPage = () => {
                     </svg>
                   </span>
                 </div>
-                <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                  {event.description}
-                </p>
+                <p
+                  className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: event.description }}
+                />
 
                 <EventImages eventImages={[...event.eventImages]} />
 
