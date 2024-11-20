@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import SectionTitle from "@/components/Common/SectionTitle";
 
 export const metadata: Metadata = {
-  title: "Event Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Event Page for Startup Nextjs Template",
+  title: "Event Page | ICT Innnovations Africa",
+  description: "This is the event page of ICT Innovations Africa. Here you can find all the latest events and engagements that we are involved in.",
   // other metadata
 };
 

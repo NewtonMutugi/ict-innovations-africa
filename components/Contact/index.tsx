@@ -21,7 +21,7 @@ const Contact = () => {
 
     try {
       await axios.post(
-        "https://ictinnovations.africa:8001/online-payment-api/api/mail/contact",
+        "https://ictinnovations.africa:8000/online-payment-api/api/mail/contact",
         formData,
       );
       setConfirmationMessage("Your message has been sent!");

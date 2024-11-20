@@ -6,11 +6,12 @@ import { useParams } from "next/navigation";
 import { Metadata } from "next";
 import EventImages from "@/components/Events/EventImages";
 
-// export const metadata: Metadata = {
-//   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
-//   description: "This is Blog Details Page for Startup Nextjs Template",
-//   // other metadata
-// };
+export const metadata: Metadata = {
+  title: "Events Page | ICT Innnovations Africa",
+  description:
+    "This is the event page of ICT Innovations Africa. Here you can find all the latest events and engagements that we are involved in.",
+  // other metadata
+};
 
 const EventDetailsPage = () => {
   const params = useParams();
