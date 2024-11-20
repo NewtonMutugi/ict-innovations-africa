@@ -58,7 +58,7 @@ const eventData: Event[] = [
     ],
     eventDate: "6th December 2024",
     description:
-      "The Africa Centre for Digital and Artificial Intelligence (AI) Skilling, officially inaugurated on October 11, 2024 at the Kenya School of Government in Nairobi is scheduled to be launched on December 6, focusing on enhancing digital competencies and service delivery. The project aims to foster innovation and improve public service efficiency through digital transformation. For more updates on this impactful initiative, <a href='https://drive.google.com/file/d/1cAr2XAZViJ6XzNyifvSPjg7CiycnLzae/view?usp=drive_link'>listen to our part one of the deep dive<a/>.",
+      "The Africa Centre for Digital and Artificial Intelligence (AI) Skilling, officially inaugurated on October 11, 2024 at the Kenya School of Government in Nairobi is scheduled to be launched on December 6, focusing on enhancing digital competencies and service delivery. The project aims to foster innovation and improve public service efficiency through digital transformation. For more updates on this impactful initiative, <a href='https://drive.google.com/file/d/1cAr2XAZViJ6XzNyifvSPjg7CiycnLzae/view?usp=drive_link' class='text-primary dark:text-white'>listen to our part one of the deep dive<a/>.",
     eventImages: [
       {
         image:
