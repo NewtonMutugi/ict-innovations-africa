@@ -42,7 +42,7 @@ const eventData: Event[] = [
       "The Africa Centre for Digital and AI Skilling, inaugurated on October 11, 2024, launches December 6 to enhance digital skills and public service innovation. Stay tuned for more!",
     image: "/images/events/AfricaCentreOfCompetenceForDigital&AISkilling.jpeg",
     venue: {
-      name: "The Kenya School of Governmen Nairobi, Kenya",
+      name: "The Kenya School of Government Nairobi, Kenya",
       image: "/images/blog/author-01.png",
       designation: "Graphic Designer",
     },
