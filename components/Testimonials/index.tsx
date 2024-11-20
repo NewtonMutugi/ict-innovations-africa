@@ -23,6 +23,15 @@ const testimonialData: Testimonial[] = [
   },
   {
     id: 3,
+    name: "Lethium Frenci",
+    designation: "Founder @Lineicons",
+    content:
+      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+    image: "/images/testimonials/auth-04.png",
+    star: 5,
+  },
+  {
+    id: 4,
     name: "Abby Mwangi",
     designation: "CEO Fusion Consultants Ltd",
     content:
