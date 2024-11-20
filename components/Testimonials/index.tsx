@@ -23,8 +23,8 @@ const testimonialData: Testimonial[] = [
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "Abby Mwangi",
+    designation: "CEO Fusion Consultants Ltd",
     content:
       "A reliable partner for innovative IT solutions; they deliver beyond expectations.",
     image: "/images/testimonials/auth-03.png",
