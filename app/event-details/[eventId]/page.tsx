@@ -75,7 +75,7 @@ const EventDetailsPage = () => {
                       rel="noreferrer"
                       className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
                     >
-                      Register for the event
+                      More information
                     </a>
                   </div>
                 </div>
@@ -234,14 +234,14 @@ const EventDetailsPage = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="mb-5 sm:ml-auto">
+                  {/* <div className="mb-5 sm:ml-auto">
                     <h5 className="mb-3 text-sm font-medium text-body-color sm:text-right">
                       Share this post :
                     </h5>
                     <div className="flex items-center sm:justify-end">
                       <SharePost />
                     </div>
-                  </div>
+                  </div> */}
                 </span>
               </div>
             </div>
