@@ -5,6 +5,7 @@ import eventData from "@/components/Events/eventData";
 import { useParams } from "next/navigation";
 import { Metadata } from "next";
 import EventImages from "@/components/Events/EventImages";
+import Countdown from "@/components/Events/countdown";
 
 // export const metadata: Metadata = {
 //   title: "Events | ICT Innnovations Africa",
@@ -79,7 +80,7 @@ const EventDetailsPage = () => {
                     </a>
                   </div>
                 </div>
-
+                <Countdown eventDate={event.eventDate} />
                 <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
                   <p className="text-center text-base font-medium italic text-body-color">
                     {event.paragraph}
@@ -217,6 +218,7 @@ const EventDetailsPage = () => {
                     </svg>
                   </span>
                 </div>
+
                 <p
                   className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: event.description }}
