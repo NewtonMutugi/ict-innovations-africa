@@ -19,6 +19,9 @@ const SingleEvent = ({ event }: { event: Event }) => {
   const { id, title, image, paragraph, venue, type, eventDate } = event;
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      return dateString;
+    }
     const day = date.getDate();
     const month = date.toLocaleString("default", { month: "long" });
     const year = date.getFullYear();
