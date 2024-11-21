@@ -1,19 +1,11 @@
 "use client";
-import SharePost from "@/components/Events/SharePost";
 import TagButton from "@/components/Events/TagButton";
 import eventData from "@/components/Events/eventData";
 import { useParams } from "next/navigation";
 import { Metadata } from "next";
 import EventImages from "@/components/Events/EventImages";
 import Countdown from "@/components/Events/countdown";
-import Head from "next/head";
 
-// export const metadata: Metadata = {
-//   title: "Events | ICT Innnovations Africa",
-//   description:
-//     "This is the event page of ICT Innovations Africa. Here you can find all the latest events and engagements that we are involved in.",
-//   // other metadata
-// };
 
 const EventDetailsPage = () => {
   const params = useParams();
@@ -36,10 +28,6 @@ const EventDetailsPage = () => {
   };
   return (
     <>
-      <Head>
-        <title>{event.title} | ICT Innovations.africa</title>
-        <meta name="description" content={event.paragraph} />
-      </Head>
       <section className="pb-[120px] pt-[150px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
