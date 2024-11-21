@@ -3,9 +3,9 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign Up Page | AI Web Generator",
+  title: "ICT Innovations Africa",
   description:
-    "This is an AI Website Generator that helps you create a website in minutes.",
+    "ICT Innovations Africa is a leading technology solutions provider dedicated to fostering innovation and digital transformation across the African continent. Our team of experts combines local insights with global best practices to develop tailored solutions that meet the unique needs of our clients.",
   // other metadata
 };
 
