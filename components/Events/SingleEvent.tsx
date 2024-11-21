@@ -17,7 +17,13 @@ const SingleEvent = ({ event }: { event: Event }) => {
   };
 
   const { id, title, image, paragraph, venue, type, eventDate } = event;
-
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.toLocaleString("default", { month: "long" });
+    const year = date.getFullYear();
+    return `${day}th ${month} ${year}`;
+  };
   return (
     <div
       className="wow fadeInUp group relative overflow-hidden rounded-sm bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
@@ -57,7 +63,7 @@ const SingleEvent = ({ event }: { event: Event }) => {
             <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
               Date:
             </h4>
-            <p className="text-xs text-body-color">{eventDate}</p>
+            <p className="text-xs text-body-color">{formatDate(eventDate)}</p>
           </div>
         </div>
       </div>
