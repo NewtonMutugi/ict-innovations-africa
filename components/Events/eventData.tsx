@@ -16,7 +16,7 @@ const eventData: Event[] = [
     tags: ["AI Monetization", "technology", "future"],
     eventDate: "To be Announced",
     description:
-      "This session will equip participants with actionable strategies to navigate career path selection and cultivate life skills essential for professional and personal growth.\nParticipants will learn how to leverage AI for creating dynamic presentations, summarizing complex content, and extracting key insights from documents, including PDFs and YouTube videos. Discover how these tools can make learning more efficient and engaging.\nWe’ll also explore the monetization of AI, offering insights on how to capitalize on AI as early adopters, including creating visually stunning websites through AI-driven solutions.",
+      "This session will equip participants with actionable strategies to navigate career path selection and cultivate life skills essential for professional and personal growth.<br />Participants will learn how to leverage AI for creating dynamic presentations, summarizing complex content, and extracting key insights from documents, including PDFs and YouTube videos. Discover how these tools can make learning more efficient and engaging.<br />We’ll also explore the monetization of AI, offering insights on how to capitalize on AI as early adopters, including creating visually stunning websites through AI-driven solutions.",
     eventImages: [
       {
         image: "/images/events/enhancinglearningwithAI.jpg",
@@ -58,7 +58,7 @@ const eventData: Event[] = [
     ],
     eventDate: "12/6/2024",
     description:
-      "The Africa Centre for Digital and Artificial Intelligence (AI) Skilling, officially inaugurated on October 11, 2024 at the Kenya School of Government in Nairobi is scheduled to be launched on December 6, focusing on enhancing digital competencies and service delivery. The primary goal of the Centre is to provide training that enhances digital competencies among public sector employees and foster a culture of innovation within the public sector, encouraging the development and implementation of digital solutions to address real-world challenges. \n\nThe establishment of the center is seen as a crucial step in advancing Africa's digital transformation agenda, aiming to improve governance and service delivery across the continent. \n\nFor more updates on this impactful initiative, <a href='https://fb.watch/w0zBXp0go-/' target='_blank' class='text-primary dark:text-white'>listen to our part one of the deep dive<a/>.",
+      "The Africa Centre for Digital and Artificial Intelligence (AI) Skilling, officially inaugurated on October 11, 2024 at the Kenya School of Government in Nairobi is scheduled to be launched on December 6, focusing on enhancing digital competencies and service delivery. The primary goal of the Centre is to provide training that enhances digital competencies among public sector employees and foster a culture of innovation within the public sector, encouraging the development and implementation of digital solutions to address real-world challenges. <br /><br />The establishment of the center is seen as a crucial step in advancing Africa's digital transformation agenda, aiming to improve governance and service delivery across the continent. <br /><br />For more updates on this impactful initiative, <a href='https://fb.watch/w0zBXp0go-/' target='_blank' class='text-primary dark:text-white'>listen to our part one of the deep dive<a/>.",
     eventImages: [
       {
         image:
