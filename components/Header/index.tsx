@@ -71,7 +71,7 @@ const Header = () => {
                   className="hidden w-full dark:block"
                 /> */}
                 <h2 className="flex-wrap text-2xl font-bold text-primary dark:text-white">
-                  ICT Innovations Africa
+                  ICTInnovations.Africa
                 </h2>
               </Link>
             </div>
