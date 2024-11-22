@@ -46,6 +46,8 @@ const Footer = () => {
                     href="https://www.facebook.com/IctInnovationsA"
                     aria-label="social-link"
                     className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       width="9"
