@@ -2,5 +2,6 @@ User-agent: *
 Disallow: /_next/static/
 Disallow: /api/
 Disallow: /api/*
+Allow: /favicon.ico
 
 Sitemap: https://ictinnovations.africa/sitemap.xml
