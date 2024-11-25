@@ -24,6 +24,9 @@ const EventDetailsPage = () => {
     const day = date.getDate();
     const month = date.toLocaleString("default", { month: "long" });
     const year = date.getFullYear();
+    if (isNaN(date.getTime())) {
+      return dateString;
+    }
     return `${day}th ${month} ${year}`;
   };
   return (
