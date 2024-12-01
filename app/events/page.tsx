@@ -23,6 +23,8 @@ const Events = () => {
           title="Our Latest Events"
           paragraph="Here are some of our latest upcoming events and engagements. This would be a perfect opportunity to learn more about what we do and what we are all about."
           center
+          buttonText="Register Interest"
+          buttonTextLink="https://forms.gle/gkxDxfg6RWreZBncA"
         />
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">

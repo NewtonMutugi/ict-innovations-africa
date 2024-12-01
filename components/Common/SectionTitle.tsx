@@ -4,12 +4,16 @@ const SectionTitle = ({
   width = "570px",
   center,
   mb = "100px",
+  buttonText,
+  buttonTextLink,
 }: {
   title: string;
   paragraph: string;
   width?: string;
   center?: boolean;
   mb?: string;
+  buttonText?: string;
+  buttonTextLink?: string;
 }) => {
   return (
     <>
@@ -24,6 +28,19 @@ const SectionTitle = ({
         <p className="text-base !leading-relaxed text-body-color md:text-lg">
           {paragraph}
         </p>
+        {/* Optional button content*/}
+        {buttonText && (
+          <div className="my-5">
+            <a
+              href={buttonTextLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
+            >
+              {buttonText}
+            </a>
+          </div>
+        )}
       </div>
     </>
   );
