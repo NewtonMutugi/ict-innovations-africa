@@ -96,6 +96,7 @@ const Footer = () => {
                     aria-label="social-link"
                     className="text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       width="17"
