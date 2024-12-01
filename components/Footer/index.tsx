@@ -95,6 +95,7 @@ const Footer = () => {
                     href="https://www.linkedin.com/company/ict-innovations-africa/"
                     aria-label="social-link"
                     className="text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    target="_blank"
                   >
                     <svg
                       width="17"
