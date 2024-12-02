@@ -16,23 +16,23 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
   const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
-      await axios.post(
-        BACKEND_URL + "/api/mail/webgenerator-email",
-        formData,
-      );
+      await axios.post(BACKEND_URL + "/api/mail/webgenerator-email", formData);
       setConfirmationMessage("Your message has been sent!");
       setShowPopup(true);
+      setLoading(false);
       clearForm();
     } catch (error) {
       console.error("Error sending email:", error);
       setConfirmationMessage("An error occurred. Please try again.");
       setShowPopup(true);
       clearForm();
+      setLoading(false);
     }
   };
   const closePopup = () => {
@@ -132,8 +132,9 @@ const Contact = () => {
                     <button
                       type="submit"
                       className="rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+                      disabled={loading}
                     >
-                      Send
+                      {loading ? "Sending" : "Send"}
                     </button>
                   </div>
                 </div>
