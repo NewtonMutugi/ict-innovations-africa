@@ -15,13 +15,14 @@ const Contact = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await axios.post(
-        "https://ictinnovations.africa:8000/online-payment-api/api/mail/contact",
+        BACKEND_URL + "/api/mail/webgenerator-email",
         formData,
       );
       setConfirmationMessage("Your message has been sent!");
