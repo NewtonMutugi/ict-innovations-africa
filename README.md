@@ -1,1 +1,1 @@
-# WebGenerator.ai
+# ICT Innovations Africa site
