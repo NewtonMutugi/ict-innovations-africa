@@ -11,6 +11,27 @@ const AdminPage = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[500px] rounded bg-white px-6 py-10 shadow-three dark:bg-dark sm:p-[60px]">
+                <Link
+                  href="/"
+                  className={`header-logo my-5 block w-full p-5 lg:p-2  `}
+                >
+                  <div className="flex flex-row justify-center">
+                    <Image
+                      src="/images/about/aiInnovations.svg"
+                      alt="ICT Innovations Africa"
+                      width={150}
+                      height={150}
+                      className="m-5"
+                    />
+                  </div>
+
+                  <h2 className="flex-wrap text-center text-3xl font-bold text-primary dark:text-primary sm:text-xl lg:text-4xl">
+                    ICTInnovations.africa
+                  </h2>
+                </Link>
+
+                <hr className="m-5" />
+
                 <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
                   Welcome to ICT Innovations Africa <br /> Admin Panel
                 </h3>
@@ -28,7 +49,7 @@ const AdminPage = () => {
                   <LoginSignUpButton location="/admin/signup" label="Sign Up" />
                 </div>
 
-                <p className="text-center text-base font-medium text-body-color">
+                {/* <p className="text-center text-base font-medium text-body-color">
                   Already a user?{" "}
                   <Link
                     href="/admin/signin"
@@ -36,7 +57,7 @@ const AdminPage = () => {
                   >
                     Sign in
                   </Link>
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
