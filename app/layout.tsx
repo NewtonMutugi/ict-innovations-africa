@@ -6,6 +6,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Inter } from "next/font/google";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
+import { Providers } from "./providers";
+import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +16,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const hideHeaderFooter = /^\/admin/.test(pathname);
+
   return (
     <html
       suppressHydrationWarning
@@ -28,14 +33,12 @@ export default function RootLayout({
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
         <Providers>
-          <Header />
+          {!hideHeaderFooter && <Header />}
           {children}
-          <Footer />
+          {!hideHeaderFooter && <Footer />}
           <ScrollToTop />
         </Providers>
       </body>
     </html>
   );
 }
-
-import { Providers } from "./providers";
