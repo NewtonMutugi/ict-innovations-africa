@@ -1,21 +1,16 @@
 import Link from "next/link";
-import { styled } from "@mui/material";
-import Image from "next/image";
-
-const LinkStyled = styled(Link)(() => ({
-  height: "70px",
-  width: "180px",
-  overflow: "hidden",
-  display: "block",
-}));
 
 const Logo = () => {
   return (
-    <LinkStyled href="/">
-      <Image src="/images/logos/dark-logo.svg" alt="logo" height={70} width={174} priority />
-    </LinkStyled>
+    <Link href="/admin/dashboard">
+      <h2 className="mx-5 mt-5  flex-wrap text-2xl font-bold text-primary dark:text-white">
+        ICTInnovations.africa <br />
+      </h2>
+      <div className="mx-5 text-lg text-gray-400 dark:text-gray-500">
+        Admin Dashboard
+      </div>
+    </Link>
   );
 };
 
 export default Logo;
-  

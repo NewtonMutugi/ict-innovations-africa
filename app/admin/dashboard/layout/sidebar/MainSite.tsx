@@ -16,6 +16,7 @@ export const Upgrade = () => {
         p: 3,
         backgroundColor: theme.palette.background.default,
         borderRadius: "8px",
+        boxShadow: theme.shadows[4],
       }}
     >
       <>
@@ -26,7 +27,7 @@ export const Upgrade = () => {
             fontSize="16px"
             mb={1}
           >
-            View Main  Website
+            View Main Website
           </Typography>
           <Button
             color="primary"
