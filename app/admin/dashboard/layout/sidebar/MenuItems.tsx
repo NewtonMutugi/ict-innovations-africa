@@ -20,7 +20,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "Dashboard",
     icon: IconLayoutDashboard,
-    href: "/",
+    href: "/admin/dashboard",
   },
   {
     navlabel: true,
@@ -30,13 +30,13 @@ const Menuitems = [
     id: uniqueId(),
     title: "Typography",
     icon: IconTypography,
-    href: "/utilities/typography",
+    href: "/admin/dashboard/utilities/typography",
   },
   {
     id: uniqueId(),
     title: "Shadow",
     icon: IconCopy,
-    href: "/utilities/shadow",
+    href: "/admin/dashboard/utilities/shadow",
   },
   {
     navlabel: true,
@@ -46,13 +46,13 @@ const Menuitems = [
     id: uniqueId(),
     title: "Login",
     icon: IconLogin,
-    href: "/authentication/login",
+    href: "/admin/dashboard/signin",
   },
   {
     id: uniqueId(),
     title: "Register",
     icon: IconUserPlus,
-    href: "/authentication/register",
+    href: "/admin/dashboard/signup",
   },
   {
     navlabel: true,
@@ -62,13 +62,13 @@ const Menuitems = [
     id: uniqueId(),
     title: "Icons",
     icon: IconMoodHappy,
-    href: "/icons",
+    href: "/admin/dashboard/icons",
   },
   {
     id: uniqueId(),
     title: "Sample Page",
     icon: IconAperture,
-    href: "/sample-page",
+    href: "/admin/dashboard/sample-page",
   },
 ];
 

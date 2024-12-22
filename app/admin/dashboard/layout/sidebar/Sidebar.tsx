@@ -1,4 +1,4 @@
-import { useMediaQuery, Box, Drawer } from "@mui/material";
+import { useMediaQuery, Box, Drawer, useTheme } from "@mui/material";
 import SidebarItems from "./SidebarItems";
 import { Upgrade } from "./Updrade";
 import { Sidebar, Logo } from "react-mui-sidebar";
@@ -17,6 +17,8 @@ const MSidebar = ({
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
 
   const sidebarWidth = "270px";
+  let theme = useTheme();
+  console.log("Paper Color" + theme.palette.background.paper);
 
   // Custom CSS for short scrollbar
   const scrollbarStyles = {
@@ -35,6 +37,7 @@ const MSidebar = ({
         sx={{
           width: sidebarWidth,
           flexShrink: 0,
+          backgroundColor: theme.palette.background.paper,
         }}
       >
         {/* ------------------------------------------- */}
@@ -47,6 +50,7 @@ const MSidebar = ({
           PaperProps={{
             sx: {
               boxSizing: "border-box",
+              boxShadow: theme.shadows[8],
               ...scrollbarStyles,
             },
           }}
@@ -59,26 +63,13 @@ const MSidebar = ({
               height: "100%",
             }}
           >
-            <Sidebar
-              width={"270px"}
-              collapsewidth="80px"
-              open={isSidebarOpen}
-              themeColor="#5d87ff"
-              themeSecondaryColor="#49beff"
-              showProfile={false}
-            >
+            <Box width={"270px"}>
               {/* ------------------------------------------- */}
-              {/* Logo */}
+              {/* Sidebar Items */}
               {/* ------------------------------------------- */}
-              <Logo img="/images/logos/dark-logo.svg" />
-              <Box>
-                {/* ------------------------------------------- */}
-                {/* Sidebar Items */}
-                {/* ------------------------------------------- */}
-                <SidebarItems />
-                <Upgrade />
-              </Box>
-            </Sidebar>
+              <SidebarItems />
+              <Upgrade />
+            </Box>
           </Box>
         </Drawer>
       </Box>
@@ -93,6 +84,7 @@ const MSidebar = ({
       variant="temporary"
       PaperProps={{
         sx: {
+          backgroundColor: theme.palette.background.paper,
           boxShadow: (theme) => theme.shadows[8],
           ...scrollbarStyles,
         },
@@ -101,27 +93,13 @@ const MSidebar = ({
       {/* ------------------------------------------- */}
       {/* Sidebar Box */}
       {/* ------------------------------------------- */}
-      <Box px={2}>
-        <Sidebar
-          width={"270px"}
-          collapsewidth="80px"
-          isCollapse={false}
-          mode="light"
-          direction="ltr"
-          themeColor="#5d87ff"
-          themeSecondaryColor="#49beff"
-          showProfile={false}
-        >
-          {/* ------------------------------------------- */}
-          {/* Logo */}
-          {/* ------------------------------------------- */}
-          <Logo img="/images/logos/dark-logo.svg" />
-          {/* ------------------------------------------- */}
-          {/* Sidebar Items */}
-          {/* ------------------------------------------- */}
-          <SidebarItems />
-          <Upgrade />
-        </Sidebar>
+      <Box px={2} width={"270px"}>
+        <Logo img="/images/logos/dark-logo.svg" />
+        {/* ------------------------------------------- */}
+        {/* Sidebar Items */}
+        {/* ------------------------------------------- */}
+        <SidebarItems />
+        <Upgrade />
       </Box>
       {/* ------------------------------------------- */}
       {/* Sidebar For Mobile */}

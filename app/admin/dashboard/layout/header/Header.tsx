@@ -1,38 +1,64 @@
-import React from 'react';
-import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge, Button } from '@mui/material';
-import PropTypes from 'prop-types';
-import Link from 'next/link';
+import React from "react";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  styled,
+  Stack,
+  IconButton,
+  Badge,
+  Button,
+  useTheme,
+} from "@mui/material";
+import PropTypes from "prop-types";
+import Link from "next/link";
 // components
-import Profile from './Profile';
-import { IconBellRinging, IconMenu } from '@tabler/icons-react';
+import Profile from "./Profile";
+import { IconBellRinging, IconMenu } from "@tabler/icons-react";
+import ThemeToggler from "@/components/Header/ThemeToggler";
 
 interface ItemType {
-  toggleMobileSidebar:  (event: React.MouseEvent<HTMLElement>) => void;
+  toggleMobileSidebar: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-const Header = ({toggleMobileSidebar}: ItemType) => {
-
-  // const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
-  // const lgDown = useMediaQuery((theme) => theme.breakpoints.down('lg'));
-
-
+const Header = ({ toggleMobileSidebar }: ItemType) => {
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
-    boxShadow: 'none',
+    boxShadow: "none",
     background: theme.palette.background.paper,
-    justifyContent: 'center',
-    backdropFilter: 'blur(4px)',
-    [theme.breakpoints.up('lg')]: {
-      minHeight: '70px',
+    justifyContent: "center",
+    backdropFilter: "blur(4px)",
+    [theme.breakpoints.up("lg")]: {
+      minHeight: "70px",
     },
+    transition: "background 0.3s ease",
   }));
+
   const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
-    width: '100%',
-    color: theme.palette.text.secondary,
+    width: "100%",
+    color: theme.palette.text.primary,
+    transition: "background 0.3s ease",
   }));
+  let theme = useTheme();
 
   return (
-    <AppBarStyled position="sticky" color="default">
-      <ToolbarStyled>
+    <AppBar
+      position="sticky"
+      color="default"
+      elevation={0}
+      sx={{
+        backgroundColor: theme.palette.background.paper,
+        color: theme.palette.text.primary,
+        backdropFilter: "blur(4px)",
+        transition: "background 0.3s ease",
+      }}
+    >
+      <Toolbar
+        sx={{
+          width: "100%",
+          color: theme.palette.text.primary,
+          transition: "background 0.3s ease",
+        }}
+      >
         <IconButton
           color="inherit"
           aria-label="menu"
@@ -47,7 +73,6 @@ const Header = ({toggleMobileSidebar}: ItemType) => {
           <IconMenu width="20" height="20" />
         </IconButton>
 
-
         <IconButton
           size="large"
           aria-label="show 11 new notifications"
@@ -58,17 +83,23 @@ const Header = ({toggleMobileSidebar}: ItemType) => {
           <Badge variant="dot" color="primary">
             <IconBellRinging size="21" stroke="1.5" />
           </Badge>
-
         </IconButton>
         <Box flexGrow={1} />
         <Stack spacing={1} direction="row" alignItems="center">
-          <Button variant="contained" component={Link} href="/authentication/login"   disableElevation color="primary" >
+          <ThemeToggler />
+          <Button
+            variant="contained"
+            component={Link}
+            href="/authentication/login"
+            disableElevation
+            color="primary"
+          >
             Login
           </Button>
           <Profile />
         </Stack>
-      </ToolbarStyled>
-    </AppBarStyled>
+      </Toolbar>
+    </AppBar>
   );
 };
 

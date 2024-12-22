@@ -3,9 +3,9 @@ import { styled, Container, Box } from "@mui/material";
 import React, { useState } from "react";
 import Header from "@/app/admin/dashboard/layout/header/Header";
 import Sidebar from "@/app/admin/dashboard/layout/sidebar/Sidebar";
-import { ThemeProvider } from "@mui/material/styles";
+// import { ThemeProvider } from "@mui/material/styles";
+import { ThemeContextProvider as ThemeProvider } from "@/app/utils/ThemeContext";
 import CssBaseline from "@mui/material/CssBaseline";
-import { baselightTheme } from "@/app/admin/dashboard/utilities/theme/DefaultColors";
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
@@ -33,8 +33,11 @@ export default function RootLayout({
 }) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+
   return (
-    <ThemeProvider theme={baselightTheme}>
+    <ThemeProvider
+    // theme={basedarkTheme}
+    >
       <CssBaseline />
       <MainWrapper className="mainwrapper">
         {/* ------------------------------------------- */}

@@ -37,14 +37,14 @@ const Profile = () => {
         }}
         onClick={handleClick2}
       >
-        <Avatar
-          src="/images/profile/user-1.jpg"
+        {/* <Avatar
+          src=""
           alt="image"
           sx={{
             width: 35,
             height: 35,
           }}
-        />
+        /> */}
       </IconButton>
       {/* ------------------------------------------- */}
       {/* Message Dropdown */}
