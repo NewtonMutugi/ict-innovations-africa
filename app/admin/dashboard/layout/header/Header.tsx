@@ -58,7 +58,7 @@ const Header = ({ toggleMobileSidebar }: ItemType) => {
             <IconMenu width={theme.spacing(2.5)} height={theme.spacing(2.5)} />
           </IconButton>
 
-          <IconButton
+          {/* <IconButton
             size="large"
             aria-label="show 11 new notifications"
             color="inherit"
@@ -68,7 +68,7 @@ const Header = ({ toggleMobileSidebar }: ItemType) => {
             <Badge variant="dot" color="primary">
               <IconBellRinging size={theme.spacing(2.625)} stroke="1.5" />
             </Badge>
-          </IconButton>
+          </IconButton> */}
           <Box flexGrow={1} />
           <Stack spacing={1} direction="row" alignItems="center">
             <ThemeToggler />
