@@ -24,6 +24,23 @@ const Menuitems = [
   },
   {
     navlabel: true,
+    subheader: "Events",
+  },
+  {
+    id: uniqueId(),
+    title: "View Events",
+    icon: IconLayoutDashboard,
+    href: "/admin/dashboard/events",
+  },
+  {
+    id: uniqueId(),
+    title: "Add Event",
+    icon: IconLayoutDashboard,
+    href: "/admin/dashboard/events/add",
+  },
+
+  {
+    navlabel: true,
     subheader: "Utilities",
   },
   {

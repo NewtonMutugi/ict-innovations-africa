@@ -25,7 +25,7 @@ const MSidebar = ({
       width: "7px",
     },
     "&::-webkit-scrollbar-thumb": {
-      backgroundColor: "#eff2f7",
+      backgroundColor: "#1C2226",
       borderRadius: "15px",
     },
   };
