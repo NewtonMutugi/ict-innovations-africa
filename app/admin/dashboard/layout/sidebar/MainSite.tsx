@@ -1,15 +1,22 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, useTheme } from "@mui/material";
 // import img1 from 'public/images/backgrounds/rocket.png';
 import Image from "next/image";
 import Link from "next/link";
 
 export const Upgrade = () => {
+  const theme = useTheme();
+
   return (
     <Box
       display="flex"
       alignItems="center"
       gap={2}
-      sx={{ m: 3, p: 3, bgcolor: "primary.light", borderRadius: "8px" }}
+      sx={{
+        m: 3,
+        p: 3,
+        backgroundColor: theme.palette.background.default,
+        borderRadius: "8px",
+      }}
     >
       <>
         <Box>
@@ -19,19 +26,19 @@ export const Upgrade = () => {
             fontSize="16px"
             mb={1}
           >
-            Haven&apos;t account ?
+            View Main  Website
           </Typography>
           <Button
             color="primary"
             target="_blank"
             disableElevation
             component={Link}
-            href="/authentication/register"
+            href="/"
             variant="contained"
             aria-label="logout"
             size="small"
           >
-            Sign Up
+            Go
           </Button>
         </Box>
         <Box mt="-35px">

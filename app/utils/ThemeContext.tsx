@@ -16,10 +16,11 @@ import {
   basedarkTheme,
   baselightTheme,
 } from "@/app/admin/dashboard/utilities/theme/DefaultColors";
+import { LinearProgress, Box } from "@mui/material";
 
 const ThemeContext = createContext({
   toggleTheme: () => {},
-  theme: "light",
+  theme: "dark",
 });
 
 export const useThemeContext = () => useContext(ThemeContext);
@@ -46,6 +47,20 @@ export const ThemeContextProvider = ({ children }) => {
       ? resolvedTheme
       : "light",
   );
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme as "light" | "dark");
+    } else {
+      // If no theme is stored in localStorage, fall back to Next.js theme resolution
+      setTheme(resolvedTheme as "light" | "dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    setNextTheme(theme); // Update next-themes with the current theme
+    localStorage.setItem("theme", theme); // Persist the theme to localStorage
+  }, [theme, setNextTheme]);
 
   useEffect(() => {
     setTheme(resolvedTheme as "light" | "dark");
@@ -61,6 +76,27 @@ export const ThemeContextProvider = ({ children }) => {
     () => createTheme(createCustomTheme(theme)),
     [theme],
   );
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme as "light" | "dark");
+    } else {
+      setTheme(resolvedTheme as "light" | "dark");
+    }
+    setIsLoading(false); // Once theme is set, stop loading
+  }, [resolvedTheme]);
+
+  if (isLoading) {
+    // Loading spinner
+    return (
+      <Box sx={{ width: "100%" }}>
+        <LinearProgress />
+      </Box>
+    );
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

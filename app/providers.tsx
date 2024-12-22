@@ -11,7 +11,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableSystem={false}
       defaultTheme="dark"
     >
-      {children}
+      <ThemeContextProvider>{children}</ThemeContextProvider>
     </NextThemesProvider>
   );
 }

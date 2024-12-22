@@ -33,17 +33,15 @@ export default function RootLayout({
       <head />
 
       <body
-        className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}
+        className={`${inter.className}`}
         style={{ backgroundColor: "inherit" }}
       >
-        <ThemeContextProvider>
-          <Providers>
-            {!hideHeaderFooter && <Header />}
-            {children}
-            {!hideHeaderFooter && <Footer />}
-            <ScrollToTop />
-          </Providers>
-        </ThemeContextProvider>
+        <Providers>
+          {!hideHeaderFooter && <Header />}
+          {children}
+          {!hideHeaderFooter && <Footer />}
+          <ScrollToTop />
+        </Providers>
       </body>
     </html>
   );

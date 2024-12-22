@@ -1,6 +1,6 @@
 import { useMediaQuery, Box, Drawer, useTheme } from "@mui/material";
 import SidebarItems from "./SidebarItems";
-import { Upgrade } from "./Updrade";
+import { Upgrade } from "./MainSite";
 import { Sidebar, Logo } from "react-mui-sidebar";
 
 interface ItemType {
@@ -17,7 +17,7 @@ const MSidebar = ({
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
 
   const sidebarWidth = "270px";
-  let theme = useTheme();
+  const theme = useTheme();
   console.log("Paper Color" + theme.palette.background.paper);
 
   // Custom CSS for short scrollbar

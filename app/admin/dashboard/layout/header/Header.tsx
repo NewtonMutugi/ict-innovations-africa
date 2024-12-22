@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   AppBar,
@@ -9,9 +9,8 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
-import PropTypes from "prop-types";
 import Link from "next/link";
-// components
+// import { ThemeContext } from "@/app/utils/ThemeContext";
 import Profile from "./Profile";
 import { IconBellRinging, IconMenu } from "@tabler/icons-react";
 import ThemeToggler from "@/components/Header/ThemeToggler";
@@ -21,75 +20,76 @@ interface ItemType {
 }
 
 const Header = ({ toggleMobileSidebar }: ItemType) => {
-  let theme = useTheme();
+  // const { toggleTheme } = useContext(ThemeContext);
+  const theme = useTheme();
 
   return (
-    <AppBar
-      position="sticky"
-      color="default"
-      elevation={0}
-      sx={{
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.text.primary,
-        backdropFilter: "blur(4px)",
-        transition: "background 0.3s ease",
-      }}
-    >
-      <Toolbar
+    <Box>
+      <AppBar
+        position="sticky"
+        color="default"
+        elevation={0}
         sx={{
-          width: "100%",
-          color: theme.palette.text.primary,
-          transition: "background 0.3s ease",
           backgroundColor: theme.palette.background.paper,
+          color: theme.palette.text.primary,
+          backdropFilter: "blur(4px)",
+          transition: "background 0.3s ease",
         }}
       >
-        <IconButton
-          color="inherit"
-          aria-label="menu"
-          onClick={toggleMobileSidebar}
-
+        <Toolbar
           sx={{
-            display: {
-              lg: "none",
-              xs: "inline",
-            },
+            width: "100%",
+            color: theme.palette.text.primary,
+            transition: "background 0.3s ease",
+            backgroundColor: theme.palette.background.paper,
           }}
         >
-          <IconMenu width="20" height="20" />
-        </IconButton>
-
-        <IconButton
-          size="large"
-          aria-label="show 11 new notifications"
-          color="inherit"
-          aria-controls="msgs-menu"
-          aria-haspopup="true"
-        >
-          <Badge variant="dot" color="primary">
-            <IconBellRinging size="21" stroke="1.5" />
-          </Badge>
-        </IconButton>
-        <Box flexGrow={1} />
-        <Stack spacing={1} direction="row" alignItems="center">
-          <ThemeToggler />
-          <Button
-            variant="contained"
-            component={Link}
-            href="/authentication/login"
-            disableElevation
-            color="primary"
+          <IconButton
+            color="inherit"
+            aria-label="menu"
+            onClick={toggleMobileSidebar}
+            sx={{
+              display: {
+                lg: "none",
+                xs: "inline",
+              },
+            }}
           >
-            Login
-          </Button>
-          <Profile />
-        </Stack>
-      </Toolbar>
-    </AppBar>
-  );
-};
+            <IconMenu width={theme.spacing(2.5)} height={theme.spacing(2.5)} />
+          </IconButton>
 
-Header.propTypes = {
-  sx: PropTypes.object,
+          <IconButton
+            size="large"
+            aria-label="show 11 new notifications"
+            color="inherit"
+            aria-controls="msgs-menu"
+            aria-haspopup="true"
+          >
+            <Badge variant="dot" color="primary">
+              <IconBellRinging size={theme.spacing(2.625)} stroke="1.5" />
+            </Badge>
+          </IconButton>
+          <Box flexGrow={1} />
+          <Stack spacing={1} direction="row" alignItems="center">
+            <ThemeToggler />
+            <Button
+              variant="contained"
+              component={Link}
+              href="/authentication/login"
+              disableElevation
+              color="primary"
+              sx={{
+                padding: theme.spacing(1, 3),
+              }}
+            >
+              Login
+            </Button>
+            <Profile />
+          </Stack>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 };
 
 export default Header;
