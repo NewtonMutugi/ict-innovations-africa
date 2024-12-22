@@ -3,7 +3,6 @@ import {
   Box,
   AppBar,
   Toolbar,
-  styled,
   Stack,
   IconButton,
   Badge,
@@ -22,22 +21,6 @@ interface ItemType {
 }
 
 const Header = ({ toggleMobileSidebar }: ItemType) => {
-  const AppBarStyled = styled(AppBar)(({ theme }) => ({
-    boxShadow: "none",
-    background: theme.palette.background.paper,
-    justifyContent: "center",
-    backdropFilter: "blur(4px)",
-    [theme.breakpoints.up("lg")]: {
-      minHeight: "70px",
-    },
-    transition: "background 0.3s ease",
-  }));
-
-  const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
-    width: "100%",
-    color: theme.palette.text.primary,
-    transition: "background 0.3s ease",
-  }));
   let theme = useTheme();
 
   return (
@@ -57,12 +40,14 @@ const Header = ({ toggleMobileSidebar }: ItemType) => {
           width: "100%",
           color: theme.palette.text.primary,
           transition: "background 0.3s ease",
+          backgroundColor: theme.palette.background.paper,
         }}
       >
         <IconButton
           color="inherit"
           aria-label="menu"
           onClick={toggleMobileSidebar}
+
           sx={{
             display: {
               lg: "none",

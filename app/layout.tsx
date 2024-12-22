@@ -36,12 +36,14 @@ export default function RootLayout({
         className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}
         style={{ backgroundColor: "inherit" }}
       >
-        <Providers>
-          {!hideHeaderFooter && <Header />}
-          {children}
-          {!hideHeaderFooter && <Footer />}
-          <ScrollToTop />
-        </Providers>
+        <ThemeContextProvider>
+          <Providers>
+            {!hideHeaderFooter && <Header />}
+            {children}
+            {!hideHeaderFooter && <Footer />}
+            <ScrollToTop />
+          </Providers>
+        </ThemeContextProvider>
       </body>
     </html>
   );

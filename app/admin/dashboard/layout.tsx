@@ -35,9 +35,7 @@ export default function RootLayout({
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
-    <ThemeProvider
-    // theme={basedarkTheme}
-    >
+    <>
       <CssBaseline />
       <MainWrapper className="mainwrapper">
         {/* ------------------------------------------- */}
@@ -75,6 +73,6 @@ export default function RootLayout({
           </Container>
         </PageWrapper>
       </MainWrapper>
-    </ThemeProvider>
+    </>
   );
 }
