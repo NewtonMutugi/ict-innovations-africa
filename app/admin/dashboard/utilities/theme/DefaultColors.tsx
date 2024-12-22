@@ -164,7 +164,7 @@ const basedarkTheme = createTheme({
       dark: "#23afdb",
     },
     background: {
-      paper: "#121723",
+      paper: "#11171D",
       default: "#121723",
     },
     success: {

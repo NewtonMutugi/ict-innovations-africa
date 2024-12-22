@@ -34,7 +34,7 @@ export default function RootLayout({
 
       <body
         className={`${inter.className}`}
-        style={{ backgroundColor: "inherit" }}
+        // style={{ backgroundColor: "inherit" }}
       >
         <Providers>
           {!hideHeaderFooter && <Header />}
