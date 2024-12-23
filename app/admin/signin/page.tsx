@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 const metadata: Metadata = {
   title: "Sign In | ICT Innovations Admin Dashboard",
-  description: "Signin page",
+  description: "Sign in page",
 };
 
 const Page = () => {
