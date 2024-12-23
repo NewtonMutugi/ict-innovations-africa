@@ -1,15 +1,24 @@
-'use client'
-import { Grid, Box } from '@mui/material';
-import PageContainer from '@/app/admin/dashboard/components/container/PageContainer';
+"use client";
+import { Grid, Box } from "@mui/material";
+import PageContainer from "@/app/admin/dashboard/components/container/PageContainer";
 // components
-import SalesOverview from '@/app/admin/dashboard/components/dashboard/SalesOverview';
-import YearlyBreakup from '@/app/admin/dashboard/components/dashboard/YearlyBreakup';
-import RecentTransactions from '@/app/admin/dashboard/components/dashboard/RecentTransactions';
-import ProductPerformance from '@/app/admin/dashboard/components/dashboard/ProductPerformance';
-import Blog from '@/app/admin/dashboard/components/dashboard/Blog';
-import MonthlyEarnings from '@/app/admin/dashboard/components/dashboard/MonthlyEarnings';
+import SalesOverview from "@/app/admin/dashboard/components/dashboard/SalesOverview";
+import YearlyBreakup from "@/app/admin/dashboard/components/dashboard/YearlyBreakup";
+import RecentTransactions from "@/app/admin/dashboard/components/dashboard/RecentTransactions";
+import ProductPerformance from "@/app/admin/dashboard/components/dashboard/ProductPerformance";
+import Blog from "@/app/admin/dashboard/components/dashboard/Blog";
+import MonthlyEarnings from "@/app/admin/dashboard/components/dashboard/MonthlyEarnings";
+import useAuth from "@/app/admin/UseAuth";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 const Dashboard = () => {
+  const isAuthenticated = useAuth();
+
+  if (!isAuthenticated) {
+    return null; // or a loading spinner
+  }
+
   return (
     <PageContainer title="Dashboard" description="this is Dashboard">
       <Box>
@@ -39,7 +48,7 @@ const Dashboard = () => {
         </Grid>
       </Box>
     </PageContainer>
-  )
-}
+  );
+};
 
 export default Dashboard;

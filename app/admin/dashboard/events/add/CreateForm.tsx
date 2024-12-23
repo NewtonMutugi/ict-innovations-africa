@@ -15,8 +15,15 @@ import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Swal from "sweetalert2";
 import Image from "next/image";
+import useAuth from "@/app/admin/UseAuth";
 
 const CreateForm = () => {
+  const isAuthenticated = useAuth();
+
+  if (!isAuthenticated) {
+    return null; // or a loading spinner
+  }
+
   const [formData, setFormData] = useState({
     title: "",
     paragraph: "",

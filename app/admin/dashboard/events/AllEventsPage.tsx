@@ -3,10 +3,17 @@ import React, { useEffect, useState } from "react";
 import { Paper, Typography, useTheme } from "@mui/material";
 import PageContainer from "@/app/admin/dashboard/components/container/PageContainer";
 import EventTile from "./EventTile";
+import useAuth from "../../UseAuth";
 
 const AllEventsPage = () => {
   const [events, setEvents] = useState([]);
   const theme = useTheme();
+
+  const isAuthenticated = useAuth();
+
+  if (!isAuthenticated) {
+    return null; // or a loading spinner
+  }
 
   useEffect(() => {
     const fetchEvents = async () => {
