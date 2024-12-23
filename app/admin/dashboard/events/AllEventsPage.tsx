@@ -4,6 +4,7 @@ import { Paper, Typography, useTheme } from "@mui/material";
 import PageContainer from "@/app/admin/dashboard/components/container/PageContainer";
 import EventTile from "./EventTile";
 import useAuth from "../../UseAuth";
+import { BACKEND_URL } from "@/app/constants";
 
 const AllEventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -18,7 +19,7 @@ const AllEventsPage = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/events");
+        const res = await fetch(`${BACKEND_URL}/api/events`);
         const data = await res.json();
         setEvents(data);
       } catch (error) {

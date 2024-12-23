@@ -36,7 +36,7 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
 
   const handleDeleteEvent = async (eventId: number) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/event/${eventId}`, {
+      const res = await fetch(`${BACKEND_URL}/api/event/${eventId}`, {
         method: "DELETE",
       });
       if (res.status === 200) {

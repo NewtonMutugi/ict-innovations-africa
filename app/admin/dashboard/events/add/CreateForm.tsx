@@ -16,6 +16,7 @@ import { useDropzone } from "react-dropzone";
 import Swal from "sweetalert2";
 import Image from "next/image";
 import useAuth from "@/app/admin/UseAuth";
+import { BACKEND_URL } from "@/app/constants";
 
 const CreateForm = () => {
   const isAuthenticated = useAuth();
@@ -133,7 +134,7 @@ const CreateForm = () => {
 
     try {
       // Make API request
-      const response = await fetch("http://localhost:8000/api/event", {
+      const response = await fetch(`${BACKEND_URL}/api/event`, {
         method: "POST",
         body: data,
       });

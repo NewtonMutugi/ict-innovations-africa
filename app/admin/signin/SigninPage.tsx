@@ -6,10 +6,50 @@ import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import Loading from "../dashboard/loading";
+import { BACKEND_URL } from "@/app/constants";
+import useAuth from "../UseAuth";
 
 const SigninPage = () => {
   const router = useRouter();
+  const isAuthenticated = useAuth();
+
+  if (isAuthenticated) {
+    if (isAuthenticated) {
+      Swal.fire({
+        title: "Authorized",
+        text: "You are already signed in. Redirecting you to dashboard.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+      router.push("/admin/dashboard");
+    }
+  }
+
   const [loading, setLoading] = useState(false);
+
+  const fetchUserData = async () => {
+    try {
+      const res = await fetch(`${BACKEND_URL}/api/auth/me`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      const data = await res.json();
+      // Cache data
+      localStorage.setItem("user", JSON.stringify(data));
+    } catch (error) {
+      console.error("Failed to fetch user data:", error);
+      Swal.fire({
+        title: "Error",
+        text: "You are required to login again!",
+        icon: "error",
+      });
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      router.push("/admin/signin");
+    }
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,7 +57,7 @@ const SigninPage = () => {
     console.log(e.target.email.value);
     console.log(e.target.password.value);
 
-    const res = await fetch("http://localhost:8000/api/auth/jlogin", {
+    const res = await fetch(`${BACKEND_URL}/api/auth/jlogin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,6 +70,12 @@ const SigninPage = () => {
     if (res.ok) {
       const data = await res.json();
       localStorage.setItem("token", data.access_token);
+      await fetchUserData();
+      Swal.fire({
+        icon: "success",
+        title: "Login successful",
+        text: "You will be redirected to the dashboard",
+      });
       router.push("/admin/dashboard");
       setLoading(false);
     } else {

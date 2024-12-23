@@ -11,14 +11,19 @@ import MonthlyEarnings from "@/app/admin/dashboard/components/dashboard/MonthlyE
 import useAuth from "@/app/admin/UseAuth";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import { use, useEffect } from "react";
+import Loading from "./loading";
+import { BACKEND_URL } from "@/app/constants";
 
 const Dashboard = () => {
   const isAuthenticated = useAuth();
 
   if (!isAuthenticated) {
-    return null; // or a loading spinner
+    return <Loading />;
   }
 
+  const router = useRouter();
+  
   return (
     <PageContainer title="Dashboard" description="this is Dashboard">
       <Box>
