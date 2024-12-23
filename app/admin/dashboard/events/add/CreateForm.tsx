@@ -16,7 +16,7 @@ import { useDropzone } from "react-dropzone";
 import Swal from "sweetalert2";
 
 const CreateForm = () => {
-  const [formData, setFormData] = useState<RemEvent>({
+  const [formData, setFormData] = useState({
     title: "",
     paragraph: "",
     image: "",
@@ -74,39 +74,76 @@ const CreateForm = () => {
     setEventImages(updatedImages);
   };
 
+  const handleImageTitleChange = (e, index) => {
+    e.preventDefault();
+    const updatedImages = [...formData.eventImages];
+    if (!updatedImages[index]) {
+      updatedImages[index] = {}; // Initialize if undefined
+    }
+    updatedImages[index].imageTitle = e.target.value;
+    setFormData((prev) => ({
+      ...prev,
+      eventImages: updatedImages,
+    }));
+  };
+
+  const handleImageDescriptionChange = (e, index) => {
+    e.preventDefault();
+    const updatedImages = [...formData.eventImages];
+    if (!updatedImages[index]) {
+      updatedImages[index] = {}; // Initialize if undefined
+    }
+    updatedImages[index].imageDescription = e.target.value;
+    setFormData((prev) => ({
+      ...prev,
+      eventImages: updatedImages,
+    }));
+  };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log("Submit clicked:", formData);
 
-    // Check images exist
-    console.log("Event images:", eventImages);
+    // Map images to include imageUrl field
+    const eventImagesData = eventImages.map((file, index) => ({
+      imageTitle: formData.eventImages[index]?.imageTitle || "",
+      imageDescription: formData.eventImages[index]?.imageDescription || "",
+      imageUrl: "", // Placeholder for now
+    }));
+
+    // Append form data
+    const data = new FormData();
+    const updatedFormData = {
+      ...formData,
+      eventImages: eventImagesData,
+    };
+
+    data.append("event", JSON.stringify(updatedFormData)); // Add JSON payload
+
+    // Append each image file
+    eventImages.forEach((file) => data.append("images", file));
 
     try {
-      const data = new FormData();
-      data.append("event", JSON.stringify(formData)); // Add JSON payload
-      console.log("Event data:", JSON.stringify(formData));
-
-      // Append each image file
-      eventImages.forEach((file) => data.append("images", file));
-
       // Make API request
       const response = await fetch("http://localhost:8000/api/event", {
         method: "POST",
         body: data,
       });
 
-      // alert("Event created successfully!");
-      Swal.fire({
-        title: "Success",
-        text: "Event created successfully",
-        icon: "success",
-      });
-      const responseData = await response.json();
-      console.log(responseData);
-      router.push("/admin/dashboard/events");
+      if (response.ok) {
+        Swal.fire({
+          title: "Success",
+          text: "Event created successfully",
+          icon: "success",
+        });
+        const responseData = await response.json();
+        console.log(responseData);
+        router.push("/admin/dashboard/events");
+      } else {
+        throw new Error("Failed to create event");
+      }
     } catch (error) {
-      console.error("Error creating event:");
-      // alert("Failed to create event. Check console for details:");
+      console.error("Error creating event:", error);
       Swal.fire({
         title: "Error",
         text: "Failed to create event. Please try again",
@@ -114,6 +151,7 @@ const CreateForm = () => {
       });
     }
   };
+
   return (
     <Paper
       elevation={3}
@@ -318,22 +356,30 @@ const CreateForm = () => {
                       objectFit: "cover",
                     }}
                   />
-                  {/* Add Image description */}
-                  <input
-                    type="text"
-                    name="imageDescription"
-                    value={formData.eventImages[index]?.imageTitle}
-                    onChange={(e) => {
-                      const updatedImages = [...formData.eventImages];
-                      updatedImages[index].imageDescription = e.target.value;
-                      setFormData((prev) => ({
-                        ...prev,
-                        eventImages: updatedImages,
-                      }));
-                    }}
-                    placeholder="Image Description"
-                    className="w-full rounded-lg border border-stroke bg-[#FCFCFC] text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#121723] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                  />
+                  {/* Add Image Title */}
+                  <div className="mt-2 flex flex-col gap-2">
+                    <input
+                      type="text"
+                      name="imageTitle"
+                      value={formData.eventImages[index]?.imageTitle || ""}
+                      onChange={(e) => handleImageTitleChange(e, index)}
+                      placeholder="Image Title"
+                      className="w-full rounded-lg border border-stroke bg-[#FCFCFC] text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#121723] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+                    />
+                    {/* Add Image description */}
+                    <textarea
+                      // type="text"
+                      rows={3}
+                      name="imageDescription"
+                      value={
+                        formData.eventImages[index]?.imageDescription || ""
+                      }
+                      onChange={(e) => handleImageDescriptionChange(e, index)}
+                      placeholder="Image Description"
+                      className="w-full rounded-lg border border-stroke bg-[#FCFCFC] text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#121723] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+                    ></textarea>
+                  </div>
+
                   <IconButton
                     size="small"
                     sx={{
