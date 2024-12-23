@@ -221,7 +221,7 @@ const SigninPage = () => {
                     )}
                   </div>
                 </form>
-                <p className="text-center text-base font-medium text-body-color">
+                {/* <p className="text-center text-base font-medium text-body-color">
                   Don’t you have an account?{" "}
                   <Link
                     href="/admin/signup"
@@ -229,7 +229,7 @@ const SigninPage = () => {
                   >
                     Sign up
                   </Link>
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
