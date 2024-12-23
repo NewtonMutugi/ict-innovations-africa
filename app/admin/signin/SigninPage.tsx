@@ -29,7 +29,7 @@ const SigninPage = () => {
     });
     if (res.ok) {
       const data = await res.json();
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", data.access_token);
       router.push("/admin/dashboard");
       setLoading(false);
     } else {
