@@ -6,17 +6,20 @@ import Link from "next/link";
 import { RemEvent } from "@/types/remEvent";
 import { truncateText } from "@/app/utils/trucateText";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
-import { Button } from "@mui/material";
-import { useTheme } from "@emotion/react";
+import { Box, Button } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import Swal from "sweetalert2";
+import { BACKEND_URL } from "@/app/constants";
 
 const EventTitle = ({ event }: { event: RemEvent }) => {
   const router = useRouter();
   console.log(event);
   if (!event) {
-    return null; // Handle the case where event is undefined
+    return null;
   }
   const theme = useTheme();
+  const eventImages = event.eventImages;
+  console.log(eventImages);
 
   const handleEventDetailsClick = (eventId: number) => {
     router.push(`/event-details/${eventId}`); // Navigate to event details page
@@ -56,16 +59,20 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
       });
     }
   };
-
+  const mainImage = BACKEND_URL + eventImages[0].imageUrl;
   return (
-    <div
-      className="wow fadeInUp group relative overflow-hidden rounded-sm bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
+    <Box
+      className="wow fadeInUp group relative overflow-hidden rounded-sm bg-white shadow-gray-light duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
       data-wow-delay=".1s"
+      sx={{
+        m: 2,
+        // p: 2,
+        backgroundColor: theme.palette.background.default,
+        borderRadius: "8px",
+        boxShadow: theme.shadows[4],
+      }}
     >
-      <div
-        // href={`/event-details/${event.id}`}
-        className="relative block aspect-[37/22] w-full"
-      >
+      <div className="relative block aspect-[37/22] w-full">
         <span
           className="absolute right-6 top-6 z-20 inline-flex items-center justify-center rounded-full bg-red-600 px-4 py-2 text-sm font-semibold capitalize text-white hover:cursor-pointer"
           onClick={() => handleDeleteEvent(event.id)}
@@ -73,24 +80,24 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
           {/* {event.type} */}
           <DeleteForeverOutlinedIcon />
         </span>
+
         <Image
-          src={event.image}
-          alt={event.title}
+          src={mainImage}
+          alt={eventImages[0].imageTitle}
           layout="fill"
           objectFit="cover"
         />
       </div>
 
       <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
-        <h3>
-          <p
-            onClick={() => handleEventDetailsClick(event.id)}
-            className="mb-4 block cursor-pointer text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl"
-          >
-            {/* Delete icon */}
-            {event.title}
-          </p>
-        </h3>
+        <p
+          onClick={() => handleEventDetailsClick(event.id)}
+          className="mb-4 block cursor-pointer text-lg font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl"
+        >
+          {/* Delete icon */}
+          {event.title}
+        </p>
+
         <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
           {truncateText(event.paragraph, 15)}
         </p>
@@ -124,9 +131,10 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
           marginBottom: "20px",
         }}
       >
-        More Information
+        View Event
       </Button>
-    </div>
+      {/* </div> */}
+    </Box>
   );
 };
 
