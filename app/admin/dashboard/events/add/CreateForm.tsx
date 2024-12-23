@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Swal from "sweetalert2";
+import Image from "next/image";
 
 const CreateForm = () => {
   const [formData, setFormData] = useState({
@@ -346,7 +347,7 @@ const CreateForm = () => {
             <Box display="flex" flexWrap="wrap" gap={theme.spacing(2)} mt={2}>
               {eventImages.map((image, index) => (
                 <Box key={index} sx={{ position: "relative" }}>
-                  <img
+                  <Image
                     src={URL.createObjectURL(image)}
                     alt={`Event Image ${index}`}
                     style={{

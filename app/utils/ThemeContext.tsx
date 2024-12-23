@@ -55,7 +55,7 @@ export const ThemeContextProvider = ({ children }) => {
       // If no theme is stored in localStorage, fall back to Next.js theme resolution
       setTheme(resolvedTheme as "light" | "dark");
     }
-  }, []);
+  }, [resolvedTheme]);
 
   useEffect(() => {
     setNextTheme(theme); // Update next-themes with the current theme

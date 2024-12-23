@@ -13,11 +13,8 @@ import { BACKEND_URL } from "@/app/constants";
 
 const EventTitle = ({ event }: { event: RemEvent }) => {
   const router = useRouter();
-  console.log(event);
-  if (!event) {
-    return null;
-  }
   const theme = useTheme();
+
   const eventImages = event.eventImages;
   console.log(eventImages);
 
