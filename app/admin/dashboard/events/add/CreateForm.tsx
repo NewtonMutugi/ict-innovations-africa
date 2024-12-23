@@ -1,4 +1,5 @@
 "use client";
+import { RemEvent } from "@/types/remEvent";
 import { Add, CloudUpload, Delete } from "@mui/icons-material";
 import {
   Box,
@@ -15,7 +16,7 @@ import { useDropzone } from "react-dropzone";
 import Swal from "sweetalert2";
 
 const CreateForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<RemEvent>({
     title: "",
     paragraph: "",
     image: "",
@@ -25,6 +26,7 @@ const CreateForm = () => {
     description: "",
     registrationLink: "",
     tags: [{ tagName: "" }],
+    eventImages: [],
   });
   const theme = useTheme();
   const router = useRouter();
@@ -315,6 +317,22 @@ const CreateForm = () => {
                       borderRadius: theme.shape.borderRadius,
                       objectFit: "cover",
                     }}
+                  />
+                  {/* Add Image description */}
+                  <input
+                    type="text"
+                    name="imageDescription"
+                    value={formData.eventImages[index]?.imageTitle}
+                    onChange={(e) => {
+                      const updatedImages = [...formData.eventImages];
+                      updatedImages[index].imageDescription = e.target.value;
+                      setFormData((prev) => ({
+                        ...prev,
+                        eventImages: updatedImages,
+                      }));
+                    }}
+                    placeholder="Image Description"
+                    className="w-full rounded-lg border border-stroke bg-[#FCFCFC] text-sm text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#121723] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                   />
                   <IconButton
                     size="small"
