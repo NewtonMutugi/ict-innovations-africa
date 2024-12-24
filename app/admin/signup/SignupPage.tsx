@@ -3,16 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import Loading from "../dashboard/loading";
 
 const SignupPage = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const res = fetch("/api/auth/signup", {
+    const res = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,6 +25,23 @@ const SignupPage = () => {
         password: e.target.password.value,
       }),
     });
+
+    if (res.ok) {
+      setLoading(false);
+      Swal.fire({
+        icon: "success",
+        title: "Account created successfully",
+        text: "You can now sign in",
+      });
+      router.push("/admin/signin");
+    } else {
+      setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong. Please try again",
+      });
+    }
   };
 
   return (
@@ -66,7 +85,7 @@ const SignupPage = () => {
                   </p>
                   <span className="hidden h-[1px] w-full max-w-[60px] bg-body-color/50 sm:block"></span> */}
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="mb-8">
                     <label
                       htmlFor="firstName"
@@ -192,12 +211,16 @@ const SignupPage = () => {
                     </label>
                   </div> */}
                   <div className="mb-6">
-                    <button
-                      className="flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
-                      type="submit"
-                    >
-                      Sign up
-                    </button>
+                    {loading ? (
+                      <button
+                        className="flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
+                        type="submit"
+                      >
+                        Sign up
+                      </button>
+                    ) : (
+                      <Loading />
+                    )}
                   </div>
                 </form>
                 <p className="text-center text-base font-medium text-body-color">
