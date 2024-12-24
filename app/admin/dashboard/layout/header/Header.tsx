@@ -83,7 +83,7 @@ const Header = ({ toggleMobileSidebar }: ItemType) => {
               variant="contained"
               component={Button}
               disableElevation
-              color="primary"
+              // color="primary"
               sx={{
                 padding: theme.spacing(1, 3),
               }}

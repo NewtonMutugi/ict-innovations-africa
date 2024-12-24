@@ -4,14 +4,20 @@ import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../dashboard/loading";
 import { BACKEND_URL } from "@/app/constants";
-import useAuth from "../UseAuth";
 
 const SigninPage = () => {
   const router = useRouter();
-  const isAuthenticated = useAuth();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const isAuthenticated = useAuth();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   if (isAuthenticated) {
     if (isAuthenticated) {
@@ -191,7 +197,7 @@ const SigninPage = () => {
                       Your Email
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       name="email"
                       placeholder="Enter your Email"
                       className="w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
