@@ -21,11 +21,14 @@ const SignupPage = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: e.target.name.value,
-        email: e.target.email.value,
+        username: e.target.username.value,
         password: e.target.password.value,
+        email: e.target.email.value,
+        first_name: e.target.firstName.value,
+        last_name: e.target.lastName.value,
       }),
     });
+    console.log(res.body);
 
     if (res.ok) {
       setLoading(false);
@@ -35,6 +38,13 @@ const SignupPage = () => {
         text: "You can now sign in",
       });
       router.push("/admin/signin");
+    } else if (res.status === 400) {
+      setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Username or email already exists",
+      });
     } else {
       setLoading(false);
       Swal.fire({
@@ -113,7 +123,7 @@ const SignupPage = () => {
                     </label>
                     <input
                       type="text"
-                      name="lastname"
+                      name="lastName"
                       placeholder="Enter your last name"
                       className="w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
                       required={true}
@@ -137,7 +147,7 @@ const SignupPage = () => {
                   </div>
                   <div className="mb-8">
                     <label
-                      htmlFor="email"
+                      htmlFor="username"
                       className="mb-3 block text-sm text-dark dark:text-white"
                     >
                       {" "}
