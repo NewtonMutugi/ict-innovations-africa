@@ -60,8 +60,6 @@ const SigninPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(e.target.email.value);
-    console.log(e.target.password.value);
 
     const res = await fetch(`${BACKEND_URL}/api/auth/jlogin`, {
       method: "POST",
