@@ -56,7 +56,7 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
       });
     }
   };
-  const mainImage = BACKEND_URL + eventImages[0].imageUrl;
+  const mainImage = `${BACKEND_URL}/${eventImages[0].imageUrl}`;
   return (
     <Box
       className="wow fadeInUp group relative overflow-hidden rounded-sm bg-white shadow-gray-light duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
@@ -88,8 +88,8 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
 
       <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
         <p
-          onClick={() => handleEventDetailsClick(event.id)}
-          className="mb-4 block cursor-pointer text-lg font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl"
+          // onClick={() => handleEventDetailsClick(event.id)}
+          className="mb-4 block text-base  font-bold text-black dark:text-white sm:text-2xl"
         >
           {/* Delete icon */}
           {event.title}

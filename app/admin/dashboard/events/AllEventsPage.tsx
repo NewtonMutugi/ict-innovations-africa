@@ -1,20 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Paper, Typography, useTheme } from "@mui/material";
+import { Divider, Paper, Typography, useTheme } from "@mui/material";
 import PageContainer from "@/app/admin/dashboard/components/container/PageContainer";
 import EventTile from "./EventTile";
-import useAuth from "../../UseAuth";
 import { BACKEND_URL } from "@/app/constants";
 
 const AllEventsPage = () => {
   const [events, setEvents] = useState([]);
   const theme = useTheme();
-
-  const isAuthenticated = useAuth();
-
-  if (!isAuthenticated) {
-    return null; // or a loading spinner
-  }
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -43,6 +36,13 @@ const AllEventsPage = () => {
         <Typography variant="h1" sx={{ mb: 5 }}>
           All Events
         </Typography>
+        <Divider
+          sx={{
+            mb: 3,
+            backgroundColor: theme.palette.divider,
+          }}
+        />
+
         {/* <EventTile event={events} /> */}
         <div className="-mx-4 flex flex-wrap justify-start">
           {events.length === 0 ? (

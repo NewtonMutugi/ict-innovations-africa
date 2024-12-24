@@ -4,6 +4,7 @@ import { Add, CloudUpload, Delete } from "@mui/icons-material";
 import {
   Box,
   Chip,
+  Divider,
   Grid,
   IconButton,
   Paper,
@@ -19,12 +20,6 @@ import useAuth from "@/app/admin/UseAuth";
 import { BACKEND_URL } from "@/app/constants";
 
 const CreateForm = () => {
-  const isAuthenticated = useAuth();
-
-  if (!isAuthenticated) {
-    return null; // or a loading spinner
-  }
-
   const [formData, setFormData] = useState({
     title: "",
     paragraph: "",
@@ -174,6 +169,12 @@ const CreateForm = () => {
         {" "}
         Create New Event
       </Typography>
+      <Divider
+        sx={{
+          mb: 3,
+          backgroundColor: theme.palette.divider,
+        }}
+      />
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <Grid container spacing={3}>
           <Grid item xs={12}>

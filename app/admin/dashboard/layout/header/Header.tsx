@@ -8,12 +8,14 @@ import {
   Badge,
   Button,
   useTheme,
+  Typography,
 } from "@mui/material";
 import Link from "next/link";
 // import { ThemeContext } from "@/app/utils/ThemeContext";
 import Profile from "./Profile";
 import { IconBellRinging, IconMenu } from "@tabler/icons-react";
 import ThemeToggler from "@/components/Header/ThemeToggler";
+import Swal from "sweetalert2";
 
 interface ItemType {
   toggleMobileSidebar: (event: React.MouseEvent<HTMLElement>) => void;
@@ -22,6 +24,8 @@ interface ItemType {
 const Header = ({ toggleMobileSidebar }: ItemType) => {
   // const { toggleTheme } = useContext(ThemeContext);
   const theme = useTheme();
+  // Get the user name from the local storage
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   return (
     <Box>
@@ -72,17 +76,32 @@ const Header = ({ toggleMobileSidebar }: ItemType) => {
           <Box flexGrow={1} />
           <Stack spacing={1} direction="row" alignItems="center">
             <ThemeToggler />
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Hello 👋 {user.first_name || "Guest"}
+            </Typography>
             <Button
               variant="contained"
-              component={Link}
-              href="/authentication/login"
+              component={Button}
               disableElevation
               color="primary"
               sx={{
                 padding: theme.spacing(1, 3),
               }}
+              onClick={() => {
+                localStorage.removeItem("user");
+                localStorage.removeItem("token");
+                Swal.fire({
+                  icon: "success",
+                  title: "Logout successful",
+                  // showConfirmButton: false,
+                  timer: 1500,
+                });
+                setTimeout(() => {
+                  window.location.href = "/admin/signin";
+                }, 1500);
+              }}
             >
-              Login
+              Logout
             </Button>
             <Profile />
           </Stack>
