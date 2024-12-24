@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import Loading from "../dashboard/loading";
+import { BACKEND_URL } from "@/app/constants";
 
 const SignupPage = () => {
   const router = useRouter();
@@ -14,7 +15,7 @@ const SignupPage = () => {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch("/api/auth/signup", {
+    const res = await fetch(`${BACKEND_URL}/api/auth/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
