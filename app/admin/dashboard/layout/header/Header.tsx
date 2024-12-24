@@ -79,14 +79,7 @@ const Header = ({ toggleMobileSidebar }: ItemType) => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Hello 👋 {user.first_name || "Guest"}
             </Typography>
-            <Button
-              variant="contained"
-              component={Button}
-              disableElevation
-              // color="primary"
-              sx={{
-                padding: theme.spacing(1, 3),
-              }}
+            <button
               onClick={() => {
                 localStorage.removeItem("user");
                 localStorage.removeItem("token");
@@ -100,9 +93,11 @@ const Header = ({ toggleMobileSidebar }: ItemType) => {
                   window.location.href = "/admin/signin";
                 }, 1500);
               }}
+              className="mx-4 mt-4 rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
             >
               Logout
-            </Button>
+            </button>
+
             <Profile />
           </Stack>
         </Toolbar>
