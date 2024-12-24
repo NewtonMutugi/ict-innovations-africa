@@ -4,7 +4,7 @@ import AllEventsPage from "./AllEventsPage";
 import useAuth from "../../UseAuth";
 import Loading from "../loading";
 
-const SamplePage = async () => {
+const SamplePage = () => {
   const isAuthenticated = useAuth();
 
   if (!isAuthenticated) {

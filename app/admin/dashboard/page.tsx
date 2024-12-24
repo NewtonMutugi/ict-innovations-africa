@@ -6,14 +6,9 @@ import SalesOverview from "@/app/admin/dashboard/components/dashboard/SalesOverv
 import YearlyBreakup from "@/app/admin/dashboard/components/dashboard/YearlyBreakup";
 import RecentTransactions from "@/app/admin/dashboard/components/dashboard/RecentTransactions";
 import ProductPerformance from "@/app/admin/dashboard/components/dashboard/ProductPerformance";
-import Blog from "@/app/admin/dashboard/components/dashboard/Blog";
 import MonthlyEarnings from "@/app/admin/dashboard/components/dashboard/MonthlyEarnings";
 import useAuth from "@/app/admin/UseAuth";
-import { useRouter } from "next/navigation";
-import Swal from "sweetalert2";
-import { use, useEffect } from "react";
 import Loading from "./loading";
-import { BACKEND_URL } from "@/app/constants";
 
 const Dashboard = () => {
   const isAuthenticated = useAuth();
@@ -21,8 +16,6 @@ const Dashboard = () => {
   if (!isAuthenticated) {
     return <Loading />;
   }
-
-  const router = useRouter();
 
   return (
     <PageContainer title="Dashboard" description="this is Dashboard">
