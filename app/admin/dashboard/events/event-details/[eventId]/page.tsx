@@ -4,17 +4,35 @@ import Countdown from "@/components/Events/countdown";
 import EventImages from "@/components/Events/EventImages";
 import TagButton from "@/components/Events/TagButton";
 import { Event } from "@/types/event";
-import { useParams } from "next/navigation";
-import React from "react";
+import { Typography } from "@mui/material";
+import { useParams, useRouter } from "next/navigation";
+import React, { use, useEffect, useState } from "react";
+import UpdateEventDialog from "./update/UpdateEventDialog";
+import Router from "next/router";
 
 const EventDetailsPage = async () => {
   const params = useParams();
   const eventId = params.eventId;
+  const [open, setOpen] = useState(true);
+  const router = useRouter();
+  const [eventData, setEventData] = useState(null);
 
-  const eventData: Event = await fetch(`${BACKEND_URL}/api/event/${eventId}`, {
-    method: "GET",
-  }).then((res) => res.json());
-  console.log(eventData);
+  const handleClickOpen = () => {
+    // setOpen(true);
+    router.push(`/admin/dashboard/events/event-details/${eventId}/update`);
+  };
+
+  useEffect(() => {
+    const fetchEventData = async () => {
+      const response = await fetch(`${BACKEND_URL}/api/event/${eventId}`, {
+        method: "GET",
+      });
+      const data = await response.json();
+      setEventData(data);
+    };
+
+    fetchEventData();
+  }, [eventId]);
 
   if (!eventData) {
     return <div>Event not found</div>;
@@ -33,7 +51,19 @@ const EventDetailsPage = async () => {
 
   return (
     <>
-      <section className="pb-[120px] pt-[150px]">
+      <div className="mb-5 flex items-center justify-between">
+        <Typography variant="h1" sx={{ mb: 5 }}>
+          {" "}
+          Create New Event
+        </Typography>
+        <button
+          className="mx-4 mt-4 rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
+          onClick={handleClickOpen}
+        >
+          Update Event
+        </button>
+      </div>
+      <section className="bg-white pb-[120px] pt-[150px] dark:bg-dark">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 lg:w-8/12">
