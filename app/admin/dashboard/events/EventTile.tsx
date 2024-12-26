@@ -35,17 +35,21 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
   };
 
   const handleDeleteEvent = async (eventId: number) => {
+    const token = localStorage.getItem("token");
     try {
       const res = await fetch(`${BACKEND_URL}/api/event/${eventId}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
       if (res.status === 200) {
-        router.refresh();
         Swal.fire({
           title: "Success",
           text: "Event Deleted successfully",
           icon: "success",
         });
+        window.location.reload();
       }
     } catch (error) {
       console.error(error);

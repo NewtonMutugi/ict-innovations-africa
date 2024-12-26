@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import AllEventsPage from "./AllEventsPage";
 import useAuth from "../../UseAuth";
+import { useRouter } from "next/navigation";
 import Loading from "../loading";
 
 const SamplePage = () => {
