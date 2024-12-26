@@ -1,24 +1,25 @@
 "use client";
-import TagButton from "@/components/Events/TagButton";
-import eventData from "@/components/Events/eventData";
-import { useParams } from "next/navigation";
-import { Metadata } from "next";
-import EventImages from "@/components/Events/EventImages";
+import { BACKEND_URL } from "@/app/constants";
 import Countdown from "@/components/Events/countdown";
+import EventImages from "@/components/Events/EventImages";
+import TagButton from "@/components/Events/TagButton";
+import { Event } from "@/types/event";
+import { useParams } from "next/navigation";
+import React from "react";
 
-
-const EventDetailsPage = () => {
+const EventDetailsPage = async () => {
   const params = useParams();
-  const eventId = params.eventId as string; // Access the eventId from params
+  const eventId = params.eventId;
 
-  const event = eventData.find((event) => event.id === parseInt(eventId, 10));
-  if (!event) {
+  const eventData: Event = await fetch(`${BACKEND_URL}/api/event/${eventId}`, {
+    method: "GET",
+  }).then((res) => res.json());
+  console.log(eventData);
+
+  if (!eventData) {
     return <div>Event not found</div>;
   }
 
-  if (!event) {
-    return <div>Event not found</div>; // handle invalid event IDs
-  }
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const day = date.getDate();
@@ -29,6 +30,7 @@ const EventDetailsPage = () => {
     }
     return `${day}th ${month} ${year}`;
   };
+
   return (
     <>
       <section className="pb-[120px] pt-[150px]">
@@ -37,14 +39,14 @@ const EventDetailsPage = () => {
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
-                  {event.title}
+                  {eventData.title}
                 </h2>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
                   <div className="flex flex-wrap items-center">
                     <div className="mb-5 mr-10 flex items-center">
                       <div className="w-full">
                         <span className="mb-1 text-base font-medium text-body-color">
-                          {/* Venue: {event.venue.name} */}
+                          Venue: {eventData.venue}
                         </span>
                       </div>
                     </div>
@@ -68,13 +70,13 @@ const EventDetailsPage = () => {
                             <path d="M13.2637 3.3697H7.64754V2.58105C8.19721 2.43765 8.62738 1.91189 8.62738 1.31442C8.62738 0.597464 8.02992 0 7.28906 0C6.54821 0 5.95074 0.597464 5.95074 1.31442C5.95074 1.91189 6.35702 2.41376 6.93058 2.58105V3.3697H1.31442C0.597464 3.3697 0 3.96716 0 4.68412V13.2637C0 13.9807 0.597464 14.5781 1.31442 14.5781H13.2637C13.9807 14.5781 14.5781 13.9807 14.5781 13.2637V4.68412C14.5781 3.96716 13.9807 3.3697 13.2637 3.3697ZM6.6677 1.31442C6.6677 0.979841 6.93058 0.716957 7.28906 0.716957C7.62364 0.716957 7.91042 0.979841 7.91042 1.31442C7.91042 1.649 7.64754 1.91189 7.28906 1.91189C6.95448 1.91189 6.6677 1.6251 6.6677 1.31442ZM1.31442 4.08665H13.2637C13.5983 4.08665 13.8612 4.34954 13.8612 4.68412V6.45261H0.716957V4.68412C0.716957 4.34954 0.979841 4.08665 1.31442 4.08665ZM13.2637 13.8612H1.31442C0.979841 13.8612 0.716957 13.5983 0.716957 13.2637V7.16957H13.8612V13.2637C13.8612 13.5983 13.5983 13.8612 13.2637 13.8612Z" />
                           </svg>
                         </span>
-                        {formatDate(event.eventDate)}
+                        {formatDate(eventData.eventDate)}
                       </p>
                     </div>
                   </div>
                   <div className="mb-5">
                     <a
-                      href={event.registrationLink}
+                      href={eventData.registrationLink}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
@@ -83,10 +85,10 @@ const EventDetailsPage = () => {
                     </a>
                   </div>
                 </div>
-                <Countdown eventDate={event.eventDate} />
+                <Countdown eventDate={eventData.eventDate} />
                 <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
                   <p className="text-center text-base font-medium italic text-body-color">
-                    {event.paragraph}
+                    {eventData.paragraph}
                   </p>
                   <span className="absolute left-0 top-0 z-[-1]">
                     <svg
@@ -224,10 +226,10 @@ const EventDetailsPage = () => {
 
                 <p
                   className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: event.description }}
+                  dangerouslySetInnerHTML={{ __html: eventData.description }}
                 />
 
-                <EventImages eventImages={[...event.eventImages]} />
+                <EventImages eventImages={[...eventData.eventImages]} />
 
                 <span className="flex flex-row items-center justify-between sm:flex">
                   <div className="mb-5">
@@ -235,13 +237,13 @@ const EventDetailsPage = () => {
                       Popular Tags :
                     </h4>
                     <div className="flex flex-wrap items-center gap-2">
-                      {event.tags.map((tag) => (
+                      {eventData.tags.map((tag) => (
                         <TagButton key={tag.id} text={tag.tagName} />
                       ))}
                     </div>
                   </div>
                   {/* <div className="mb-5 sm:ml-auto">
-                    <h5 className="mb-3 text-sm font-medium text-body-color sm:text-right">
+                    <h5 className="m b-3 text-sm font-medium text-body-color sm:text-right">
                       Share this post :
                     </h5>
                     <div className="flex items-center sm:justify-end">

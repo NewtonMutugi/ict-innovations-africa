@@ -1,3 +1,4 @@
+import { BACKEND_URL } from "@/app/constants";
 import { EventImage } from "@/types/event";
 import Image from "next/image";
 
@@ -20,7 +21,7 @@ const EventImages: React.FC<EventImagesProps> = ({ eventImages }) => {
         >
           <div className="relative mb-6 h-64 w-full">
             <Image
-              src={eventImage.image}
+              src={`${BACKEND_URL}/${eventImage.imageUrl}`}
               alt={eventImage.imageDescription}
               fill
               className="rounded-md object-cover"

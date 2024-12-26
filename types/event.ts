@@ -5,9 +5,15 @@ type Venue = {
 };
 
 export type EventImage = {
-  image?: string;
+  id: number;
+  imageUrl?: string;
   imageTitle?: string;
   imageDescription?: string;
+};
+
+export type Tag = {
+  id: number;
+  tagName: string;
 };
 
 export type Event = {
@@ -15,9 +21,9 @@ export type Event = {
   title: string;
   paragraph: string;
   image: string;
-  venue: Venue;
+  venue: string;
   type: string;
-  tags: string[];
+  tags: Tag[];
   description: string;
   eventDate: string;
   eventImages: EventImage[];

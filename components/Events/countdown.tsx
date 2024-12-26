@@ -9,7 +9,7 @@ const Countdown: React.FC<CountdownProps> = ({ eventDate }) => {
   const [timeRemaining, setTimeRemaining] = useState<string | null>(null);
 
   useEffect(() => {
-    if (eventDate === "To be Announced") {
+    if (eventDate === "To be Announced" || "TBA") {
       setTimeRemaining("To be Announced");
       return;
     }
