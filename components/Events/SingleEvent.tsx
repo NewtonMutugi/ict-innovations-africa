@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Event } from "@/types/event";
 
-const SingleEvent = ({ event }: { event: Event }) => {
+const SingleEvent = ({ event }: { event}) => {
   const router = useRouter();
 
   if (!event) {
