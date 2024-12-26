@@ -1,6 +1,6 @@
 import { Event } from "@/types/event";
 
-const eventData: Event[] = [
+const eventData = [
   {
     id: 1,
     title: "Preparing the Youth for the Future",
