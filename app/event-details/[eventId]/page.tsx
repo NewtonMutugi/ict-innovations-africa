@@ -6,7 +6,6 @@ import { Metadata } from "next";
 import EventImages from "@/components/Events/EventImages";
 import Countdown from "@/components/Events/countdown";
 
-
 const EventDetailsPage = () => {
   const params = useParams();
   const eventId = params.eventId as string; // Access the eventId from params
@@ -236,7 +235,7 @@ const EventDetailsPage = () => {
                     </h4>
                     <div className="flex flex-wrap items-center gap-2">
                       {event.tags.map((tag) => (
-                        <TagButton key={tag.id} text={tag.tagName} />
+                        <TagButton key={tag} text={tag} />
                       ))}
                     </div>
                   </div>

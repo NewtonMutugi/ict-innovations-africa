@@ -3,7 +3,7 @@ import { EventImage } from "@/types/event";
 import Image from "next/image";
 
 interface EventImagesProps {
-  eventImages: EventImage[];
+  eventImages;
 }
 
 const EventImages: React.FC<EventImagesProps> = ({ eventImages }) => {
