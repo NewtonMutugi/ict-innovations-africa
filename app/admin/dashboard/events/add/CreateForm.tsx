@@ -7,7 +7,9 @@ import {
   Divider,
   Grid,
   IconButton,
+  MenuItem,
   Paper,
+  Select,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -200,13 +202,13 @@ const CreateForm = () => {
               htmlFor="paragraph"
               className="mb-3 block text-sm font-medium text-dark dark:text-white"
             >
-              Brief Description
+              Tagline
             </label>
             <input
               name="paragraph"
               value={formData.paragraph}
               onChange={handleInputChange}
-              placeholder="Type a brief description of the event"
+              placeholder="Provide a brief tagline of the event"
               className="w-full resize-none rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
               required
             />
@@ -237,7 +239,7 @@ const CreateForm = () => {
             >
               Event Type
             </label>
-            <input
+            {/* <input
               type="text"
               name="type"
               value={formData.type}
@@ -245,7 +247,27 @@ const CreateForm = () => {
               placeholder="Enter your type"
               className="w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
               required
-            />
+            /> */}
+            <Select
+              name="type"
+              value={formData.type}
+              onChange={handleInputChange}
+              sx={{
+                width: "100%",
+                // borderRadius: theme.shape.borderRadius,
+                border: "1px solid",
+                borderColor: "stroke",
+                backgroundColor: theme.palette.background.paper,
+                color: theme.palette.text.primary,
+                "&:focus": {
+                  borderColor: "primary",
+                  boxShadow: "none",
+                },
+              }}
+            >
+              <MenuItem value="Workshop">Online</MenuItem>
+              <MenuItem value="Hackathon">Physical</MenuItem>
+            </Select>
           </Grid>
 
           <Grid item xs={6}>
