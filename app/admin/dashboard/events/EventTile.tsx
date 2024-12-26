@@ -120,7 +120,7 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
       <Button
         variant="contained"
         component={Link}
-        href={`/event-details/${event.id}`}
+        href={`events/event-details/${event.id}`}
         disableElevation
         color="primary"
         sx={{
