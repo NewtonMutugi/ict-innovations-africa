@@ -28,7 +28,7 @@ const CreateForm = () => {
     image: "",
     venue: "",
     type: "",
-    eventDate: "",
+    eventDate: null,
     description: "",
     registrationLink: "",
     tags: [{ tagName: "" }],
@@ -128,12 +128,15 @@ const CreateForm = () => {
 
     // Append each image file
     eventImages.forEach((file) => data.append("images", file));
-
+    const token = await localStorage.getItem("token");
     try {
       // Make API request
       const response = await fetch(`${BACKEND_URL}/api/event`, {
         method: "POST",
         body: data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (response.ok) {
@@ -284,8 +287,11 @@ const CreateForm = () => {
               onChange={handleInputChange}
               placeholder="Enter your event date"
               className="w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-              required
+              // required
             />
+            <small className="text-xs text-red-500">
+              * Leave blank if the date is yet to be decided
+            </small>
           </Grid>
 
           <Grid item xs={6}>
@@ -381,9 +387,9 @@ const CreateForm = () => {
                   <Image
                     src={URL.createObjectURL(image)}
                     alt={`Event Image ${index}`}
+                    width={120}
+                    height={120}
                     style={{
-                      height: theme.spacing(12),
-                      width: theme.spacing(12),
                       borderRadius: theme.shape.borderRadius,
                       objectFit: "cover",
                     }}
