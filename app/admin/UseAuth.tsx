@@ -19,6 +19,7 @@ const useAuth = () => {
         setIsAuthenticated(true);
       } else {
         setIsAuthenticated(false);
+        localStorage.removeItem("token");
         Swal.fire({
           title: "Unauthorized",
           text: "You are not authorized to access this page. Please sign in.",
