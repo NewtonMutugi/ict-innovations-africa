@@ -13,7 +13,7 @@ const eventData = [
       designation: "Graphic Designer",
     },
     type: "online",
-    tags: ["AI Monetization", "technology", "future"],
+    tags: ["Monetization", "technology", "future"],
     eventDate: "To be Announced",
     description:
       "This session will equip participants with actionable strategies to navigate career path selection and cultivate life skills essential for professional and personal growth.<br />Participants will learn how to leverage AI for creating dynamic presentations, summarizing complex content, and extracting key insights from documents, including PDFs and YouTube videos. Discover how these tools can make learning more efficient and engaging.<br />We’ll also explore the monetization of AI, offering insights on how to capitalize on AI as early adopters, including creating visually stunning websites through AI-driven solutions.",

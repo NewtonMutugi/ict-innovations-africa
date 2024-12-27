@@ -172,7 +172,7 @@ const CreateForm = () => {
     }
   };
 
-  return !loading ? (
+  return (
     <Paper
       elevation={3}
       sx={{
@@ -439,7 +439,15 @@ const CreateForm = () => {
                     }}
                     onClick={() => handleRemoveImage(index)}
                   >
-                    <Delete fontSize="small" />
+                    <Delete
+                      fontSize="small"
+                      sx={{
+                        color: theme.palette.text.primary,
+                        "&:hover": {
+                          color: theme.palette.error.main,
+                        },
+                      }}
+                    />
                   </IconButton>
                 </Box>
               ))}
@@ -447,18 +455,20 @@ const CreateForm = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <button
-              type="submit"
-              className="w-full rounded-lg bg-primary py-3 text-base font-medium text-white focus:shadow-none focus:outline-none"
-            >
-              Create Event
-            </button>
+            {loading ? (
+              <Loading />
+            ) : (
+              <button
+                type="submit"
+                className="w-full rounded-lg bg-primary py-3 text-base font-medium text-white focus:shadow-none focus:outline-none"
+              >
+                Create Event
+              </button>
+            )}
           </Grid>
         </Grid>
       </form>
     </Paper>
-  ) : (
-    <Loading />
   );
 };
 
