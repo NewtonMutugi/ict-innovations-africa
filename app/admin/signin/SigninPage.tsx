@@ -44,13 +44,13 @@ const SigninPage = () => {
       testTokenValidity(token);
       setIsAuthenticated(true);
     } else {
-      Swal.fire({
-        title: "Unauthorized",
-        text: "You are not authorized to access this page. Please sign in.",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
-      router.push("/admin/signin");
+      // Swal.fire({
+      //   title: "Unauthorized",
+      //   text: "You are not authorized to access this page. Please sign in.",
+      //   icon: "error",
+      //   confirmButtonText: "Ok",
+      // });
+      // router.push("/admin/signin");
     }
   }, [router]);
 
