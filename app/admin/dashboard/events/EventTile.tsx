@@ -88,7 +88,8 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
           alt={eventImages[0].imageTitle}
           layout="fill"
           objectFit="cover"
-          quality={75}
+          // quality={75}
+          unoptimized
         />
       </div>
 
