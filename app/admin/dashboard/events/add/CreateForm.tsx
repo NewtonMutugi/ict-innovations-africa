@@ -20,6 +20,7 @@ import Swal from "sweetalert2";
 import Image from "next/image";
 import useAuth from "@/app/admin/UseAuth";
 import { BACKEND_URL } from "@/app/constants";
+import Loading from "../../loading";
 
 const CreateForm = () => {
   const [formData, setFormData] = useState({
@@ -36,6 +37,7 @@ const CreateForm = () => {
   });
   const theme = useTheme();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const [eventImages, setEventImages] = useState<File[]>([]);
 
@@ -109,6 +111,7 @@ const CreateForm = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log("Submit clicked:", formData);
+    setLoading(true);
 
     // Map images to include imageUrl field
     const eventImagesData = eventImages.map((file, index) => ({
@@ -148,11 +151,19 @@ const CreateForm = () => {
         const responseData = await response.json();
         console.log(responseData);
         router.push("/admin/dashboard/events");
+        setLoading(false);
       } else {
+        Swal.fire({
+          title: "Error",
+          text: "Failed to create event. Please try again",
+          icon: "error",
+        });
+        setLoading(false);
         throw new Error("Failed to create event");
       }
     } catch (error) {
       console.error("Error creating event:", error);
+      setLoading(false);
       Swal.fire({
         title: "Error",
         text: "Failed to create event. Please try again",
@@ -161,7 +172,7 @@ const CreateForm = () => {
     }
   };
 
-  return (
+  return !loading ? (
     <Paper
       elevation={3}
       sx={{
@@ -446,6 +457,8 @@ const CreateForm = () => {
         </Grid>
       </form>
     </Paper>
+  ) : (
+    <Loading />
   );
 };
 
