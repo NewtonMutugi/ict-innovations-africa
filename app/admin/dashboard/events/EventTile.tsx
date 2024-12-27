@@ -60,7 +60,8 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
       });
     }
   };
-  const mainImage = `${BACKEND_URL}/${eventImages[0].imageUrl}`;
+  const mainImage = encodeURI(`${BACKEND_URL}/${eventImages[0].imageUrl}`);
+  console.log(mainImage);
   return (
     <Box
       className="wow fadeInUp group relative overflow-hidden rounded-sm bg-white shadow-gray-light duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark"
