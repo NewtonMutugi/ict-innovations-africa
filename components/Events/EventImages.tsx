@@ -24,6 +24,7 @@ const EventImages: React.FC<EventImagesProps> = ({ eventImages }) => {
               src={`${BACKEND_URL}/${eventImage.imageUrl}`}
               alt={eventImage.imageDescription}
               fill
+              unoptimized
               className="rounded-md object-cover"
             />
           </div>

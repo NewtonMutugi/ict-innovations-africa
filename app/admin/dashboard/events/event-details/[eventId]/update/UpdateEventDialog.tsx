@@ -414,6 +414,7 @@ const UpdateEventDialog = () => {
                     <Image
                       src={`${BACKEND_URL}/${formData.eventImages[index]?.imageUrl}`}
                       alt={`Event Image ${index}`}
+                      unoptimized
                       width={120}
                       height={120}
                       style={{

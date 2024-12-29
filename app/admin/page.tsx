@@ -22,6 +22,7 @@ const AdminPage = () => {
                       width={150}
                       height={150}
                       className="m-5"
+                      unoptimized
                     />
                   </div>
 
