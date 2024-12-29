@@ -1,16 +1,36 @@
 "use client";
 import TagButton from "@/components/Events/TagButton";
-import eventData from "@/components/Events/eventData";
+// import eventData from "@/components/Events/eventData";
 import { useParams } from "next/navigation";
-import { Metadata } from "next";
 import EventImages from "@/components/Events/EventImages";
 import Countdown from "@/components/Events/countdown";
+import { RemEvent } from "@/types/remEvent";
+import { BACKEND_URL } from "@/app/constants";
+import { useEffect, useState } from "react";
 
 const EventDetailsPage = () => {
   const params = useParams();
   const eventId = params.eventId as string; // Access the eventId from params
 
-  const event = eventData.find((event) => event.id === parseInt(eventId, 10));
+  const [eventData, setEventData] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const res = await fetch(`${BACKEND_URL}/api/events`);
+        const data = await res.json();
+        setEventData(data);
+      } catch (error) {
+        console.error("Failed to fetch events:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  const event = eventData.find(
+    (event) => event.id === parseInt(eventId, 10),
+  );
   if (!event) {
     return <div>Event not found</div>;
   }
@@ -235,7 +255,7 @@ const EventDetailsPage = () => {
                     </h4>
                     <div className="flex flex-wrap items-center gap-2">
                       {event.tags.map((tag) => (
-                        <TagButton key={tag} text={tag} />
+                        <TagButton key={tag.id} text={tag.tagName} />
                       ))}
                     </div>
                   </div>

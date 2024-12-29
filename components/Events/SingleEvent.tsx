@@ -3,10 +3,11 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Event } from "@/types/event";
+import { BACKEND_URL } from "@/app/constants";
 
-const SingleEvent = ({ event }: { event}) => {
+const SingleEvent = ({ event }: { event }) => {
   const router = useRouter();
+  console.log(event);
 
   if (!event) {
     return null; // Handle the case where event is undefined
@@ -16,7 +17,6 @@ const SingleEvent = ({ event }: { event}) => {
     router.push(`/event-details/${eventId}`); // Navigate to event details page
   };
 
-  const { id, title, image, paragraph, venue, type, eventDate } = event;
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     if (isNaN(date.getTime())) {
@@ -33,25 +33,30 @@ const SingleEvent = ({ event }: { event}) => {
       data-wow-delay=".1s"
     >
       <Link
-        href={`/event-details/${id}`}
+        href={`/event-details/${event.id}`}
         className="relative block aspect-[37/22] w-full"
       >
         <span className="absolute right-6 top-6 z-20 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold capitalize text-white">
-          {type}
+          {event.type}
         </span>
-        <Image src={image} alt={title} layout="fill" objectFit="cover" />
+        <Image
+          src={`${BACKEND_URL}/${event.eventImages[0].imageUrl}`}
+          alt={event.title}
+          layout="fill"
+          objectFit="cover"
+        />
       </Link>
       <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
         <h3>
           <p
-            onClick={() => handleEventDetailsClick(id)}
+            onClick={() => handleEventDetailsClick(event.id)}
             className="mb-4 block cursor-pointer text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl"
           >
-            {title}
+            {event.title}
           </p>
         </h3>
         <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
-          {paragraph}
+          {event.paragraph}
         </p>
         <div className="flex items-center">
           <div className="mr-5 flex items-center border-r border-body-color border-opacity-10 pr-5 dark:border-white dark:border-opacity-10 xl:mr-3 xl:pr-3 2xl:mr-5 2xl:pr-5">
@@ -59,14 +64,16 @@ const SingleEvent = ({ event }: { event}) => {
               <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
                 Venue:
               </h4>
-              <p className="text-xs text-body-color">{venue.name}</p>
+              <p className="text-xs text-body-color">{event.venue}</p>
             </div>
           </div>
           <div className="inline-block">
             <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
               Date:
             </h4>
-            <p className="text-xs text-body-color">{formatDate(eventDate)}</p>
+            <p className="text-xs text-body-color">
+              {formatDate(event.eventDate)}
+            </p>
           </div>
         </div>
       </div>

@@ -1,9 +1,27 @@
-import SectionTitle from '@/components/Common/SectionTitle';
-import eventData from '@/components/Events/eventData';
-import SingleEvent from '@/components/Events/SingleEvent';
-import React from 'react'
+"use client";
+import SectionTitle from "@/components/Common/SectionTitle";
+import SingleEvent from "@/components/Events/SingleEvent";
+import { RemEvent } from "@/types/remEvent";
+import React, { useEffect, useState } from "react";
+import { BACKEND_URL } from "../constants";
 
 const EventsPage = () => {
+  const [eventData, setEventData] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const res = await fetch(`${BACKEND_URL}/api/events`);
+        const data = await res.json();
+        setEventData(data);
+      } catch (error) {
+        console.error("Failed to fetch events:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
   return (
     <>
       {/* <Breadcrumb
@@ -33,6 +51,6 @@ const EventsPage = () => {
       </section>
     </>
   );
-}
+};
 
-export default EventsPage
+export default EventsPage;
