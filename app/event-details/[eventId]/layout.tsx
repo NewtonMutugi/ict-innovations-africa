@@ -7,7 +7,6 @@
 //   params: { eventId: string };
 // }): Promise<Metadata> {
 //   const { eventId } = params;
-
 //   // Fetch metadata for the event (replace with your API or logic)
 //   // const event = await fetchEventDetails(eventId);
 
@@ -29,7 +28,7 @@
 //   const events = eventData;
 //   return events.find((event) => event.id === Number(eventId));
 // }
-
+// TODO: Restore generate metadata functionality
 export default function EventDetailsLayout({
   children,
 }: {
