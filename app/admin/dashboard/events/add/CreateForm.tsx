@@ -279,8 +279,8 @@ const CreateForm = () => {
                 },
               }}
             >
-              <MenuItem value="Workshop">Online</MenuItem>
-              <MenuItem value="Hackathon">Physical</MenuItem>
+              <MenuItem value="Online">Online</MenuItem>
+              <MenuItem value="Physical">Physical</MenuItem>
             </Select>
           </Grid>
 
