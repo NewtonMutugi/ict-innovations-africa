@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import eventData from "./eventData";
+// import eventData from "./eventData";
 
 interface CountdownProps {
   eventDate: string;

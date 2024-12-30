@@ -1,6 +1,6 @@
 import SectionTitle from "../Common/SectionTitle";
 import SingleEvent from "./SingleEvent";
-import eventData from "./eventData";
+// import eventData from "./eventData";
 
 const Events = () => {
   return (
@@ -16,11 +16,11 @@ const Events = () => {
         />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 xl:grid-cols-3">
-          {eventData.map((event) => (
+          {/* {eventData.map((event) => (
             <div key={event.id} className="w-full ">
               <SingleEvent event={event} />
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </section>
