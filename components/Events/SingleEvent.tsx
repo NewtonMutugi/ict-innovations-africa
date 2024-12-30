@@ -44,6 +44,7 @@ const SingleEvent = ({ event }: { event }) => {
           alt={event.title}
           layout="fill"
           objectFit="cover"
+          unoptimized
         />
       </Link>
       <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
