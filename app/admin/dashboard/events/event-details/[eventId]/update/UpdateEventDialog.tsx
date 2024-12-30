@@ -49,6 +49,7 @@ const UpdateEventDialog = () => {
         const res = await fetch(`${BACKEND_URL}/api/event/${eventId}`);
         const data = await res.json();
         setFormData(data);
+        setEventImages(data.eventImages || []);
         console.log(data);
         setLoading(false);
       } catch (error) {
