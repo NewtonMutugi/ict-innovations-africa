@@ -3,7 +3,7 @@ import { BACKEND_URL } from "@/app/constants";
 import { RemEvent } from "@/types/remEvent";
 import { useEffect, useState } from "react";
 
-// TODO: Figure out a way to fetch event data on load and export it to be used throughout the app
+// TODO: Figure out a way to fetch event data on load and export it to be used throughout the app so that all data is fetched from here:
 // const eventData = [
 //   {
 //     id: 1,
