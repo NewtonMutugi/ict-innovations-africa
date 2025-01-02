@@ -36,7 +36,7 @@ const PaymentsTable = () => {
         const res = await fetch(`${BACKEND_URL}/api/paystack/payments`);
         const data = await res.json();
         setPayments(data);
-        setFilteredPayments(data); 
+        setFilteredPayments(data);
       } catch (error) {
         console.error("Error fetching payments:", error);
       }
@@ -102,6 +102,7 @@ const PaymentsTable = () => {
                   width: "200px",
                   padding: "6px 8px",
                   fontSize: "0.875rem",
+                  height: "40px",
                 }}
                 onChange={(e) => handleFilterChange("name", e.target.value)}
               />
@@ -113,6 +114,7 @@ const PaymentsTable = () => {
                   width: "200px",
                   padding: "6px 8px",
                   fontSize: "0.875rem",
+                  height: "40px",
                 }}
                 onChange={(e) => handleFilterChange("email", e.target.value)}
               />
@@ -124,11 +126,12 @@ const PaymentsTable = () => {
                   width: "200px",
                   padding: "6px 8px",
                   fontSize: "0.875rem",
+                  height: "40px",
                 }}
                 onChange={(e) => handleFilterChange("status", e.target.value)}
               />
               <button
-                className="mx-4 mt-4 justify-end rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
+                className="rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
                 onClick={applyFilters}
               >
                 Apply Filters
