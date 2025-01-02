@@ -14,6 +14,7 @@ import {
   TableRow,
   Chip,
   TextField,
+  Button,
 } from "@mui/material";
 import { Select, MenuItem } from "@mui/material";
 
@@ -27,6 +28,7 @@ const PaymentsTable = () => {
     email: "",
     status: "",
   });
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     const fetchPayments = async () => {
@@ -34,6 +36,7 @@ const PaymentsTable = () => {
         const res = await fetch(`${BACKEND_URL}/api/paystack/payments`);
         const data = await res.json();
         setPayments(data);
+        setFilteredPayments(data); // Initialize filteredPayments with all data
       } catch (error) {
         console.error("Error fetching payments:", error);
       }
@@ -54,27 +57,24 @@ const PaymentsTable = () => {
     setCurrentPage(1);
   };
 
-  useEffect(() => {
-    applyFilters();
-  }, [filters]);
-
   const handleFilterChange = (key, value) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
-  const totalRecords = payments.length;
+
+  const totalRecords = filteredPayments.length;
   const totalPages = Math.ceil(totalRecords / recordsPerPage);
   const startIndex = (currentPage - 1) * recordsPerPage;
-  const paginatedPayments = payments.slice(
+  const paginatedPayments = filteredPayments.slice(
     startIndex,
     startIndex + recordsPerPage,
   );
 
   const handlePageChange = (page) => setCurrentPage(page);
+
   const handleRecordsChange = (e) => {
     setRecordsPerPage(parseInt(e.target.value));
     setCurrentPage(1);
   };
-  const [showFilters, setShowFilters] = useState(false);
 
   return (
     <PageContainer title="Payments" description="This is the Payments page">
@@ -86,16 +86,14 @@ const PaymentsTable = () => {
         <div className="flex flex-col justify-between">
           <div className="flex">
             <button
-              onClick={() => {
-                setShowFilters(!showFilters);
-              }}
+              onClick={() => setShowFilters(!showFilters)}
               className="mx-4 mt-4 justify-end rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
             >
               Filter
             </button>
           </div>
           {showFilters && (
-            <Box mb={2} display="flex" gap={2} margin={2}>
+            <Box mb={2} display="flex" gap={2} margin={2} flexWrap="wrap">
               <TextField
                 label="Filter by Name"
                 variant="filled"
@@ -115,6 +113,12 @@ const PaymentsTable = () => {
                 size="small"
                 onChange={(e) => handleFilterChange("status", e.target.value)}
               />
+              <button
+                className="mx-4 mt-4 justify-end rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
+                onClick={applyFilters}
+              >
+                Apply Filters
+              </button>
             </Box>
           )}
 
