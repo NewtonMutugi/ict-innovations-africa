@@ -36,7 +36,7 @@ const PaymentsTable = () => {
         const res = await fetch(`${BACKEND_URL}/api/paystack/payments`);
         const data = await res.json();
         setPayments(data);
-        setFilteredPayments(data); // Initialize filteredPayments with all data
+        setFilteredPayments(data); 
       } catch (error) {
         console.error("Error fetching payments:", error);
       }
@@ -94,23 +94,37 @@ const PaymentsTable = () => {
           </div>
           {showFilters && (
             <Box mb={2} display="flex" gap={2} margin={2} flexWrap="wrap">
-              <TextField
-                label="Filter by Name"
-                variant="filled"
-                size="small"
+              <input
+                type="text"
+                placeholder="Filter by Name"
+                className="form-control rounded-xl"
+                style={{
+                  width: "200px",
+                  padding: "6px 8px",
+                  fontSize: "0.875rem",
+                }}
                 onChange={(e) => handleFilterChange("name", e.target.value)}
-                sx={{ borderRadius: "20px" }}
               />
-              <TextField
-                label="Filter by Email"
-                variant="filled"
-                size="small"
+              <input
+                type="email"
+                placeholder="Filter by Email"
+                className="form-control rounded-xl"
+                style={{
+                  width: "200px",
+                  padding: "6px 8px",
+                  fontSize: "0.875rem",
+                }}
                 onChange={(e) => handleFilterChange("email", e.target.value)}
               />
-              <TextField
-                label="Filter by Status"
-                variant="filled"
-                size="small"
+              <input
+                type="text"
+                placeholder="Filter by Status"
+                className="form-control rounded-xl"
+                style={{
+                  width: "200px",
+                  padding: "6px 8px",
+                  fontSize: "0.875rem",
+                }}
                 onChange={(e) => handleFilterChange("status", e.target.value)}
               />
               <button
