@@ -6,6 +6,7 @@ import {
   IconMoodHappy,
   IconTypography,
   IconUserPlus,
+  IconDatabaseDollar,
 } from "@tabler/icons-react";
 
 import { uniqueId } from "lodash";
@@ -38,7 +39,16 @@ const Menuitems = [
     icon: IconLayoutDashboard,
     href: "/admin/dashboard/events/add",
   },
-
+  {
+    navlabel: true,
+    subheader: "Payments",
+  },
+  {
+    id: uniqueId(),
+    title: "View Payments",
+    icon: IconDatabaseDollar,
+    href: "/admin/dashboard/payments",
+  },
   // {
   //   navlabel: true,
   //   subheader: "Utilities",

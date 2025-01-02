@@ -153,8 +153,8 @@ const UpdateEventDialog = () => {
     const token = await localStorage.getItem("token");
     try {
       // Make API request
-      const response = await fetch(`${BACKEND_URL}/api/event/${eventId}`, {
-        method: "PUT",
+      const response = await fetch(`${BACKEND_URL}/api/events/${eventId}`, {
+        method: "PATCH",
         body: data,
         headers: {
           Authorization: `Bearer ${token}`,
@@ -164,20 +164,20 @@ const UpdateEventDialog = () => {
       if (response.ok) {
         Swal.fire({
           title: "Success",
-          text: "Event created successfully",
+          text: "Event Updated successfully",
           icon: "success",
         });
         const responseData = await response.json();
         // console.log(responseData);
         router.push("/admin/dashboard/events");
       } else {
-        throw new Error("Failed to create event");
+        throw new Error("Failed to update event");
       }
     } catch (error) {
-      console.error("Error creating event:", error);
+      console.error("Error Update event:", error);
       Swal.fire({
         title: "Error",
-        text: "Failed to create event. Please try again",
+        text: "Failed to update event. Please try again",
         icon: "error",
       });
     }
