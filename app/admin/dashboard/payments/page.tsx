@@ -13,6 +13,7 @@ import {
   TableHead,
   TableRow,
   Chip,
+  TextField,
 } from "@mui/material";
 import { Select, MenuItem } from "@mui/material";
 
@@ -20,6 +21,12 @@ const PaymentsTable = () => {
   const [payments, setPayments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage, setRecordsPerPage] = useState(24);
+  const [filteredPayments, setFilteredPayments] = useState([]);
+  const [filters, setFilters] = useState({
+    name: "",
+    email: "",
+    status: "",
+  });
 
   useEffect(() => {
     const fetchPayments = async () => {
@@ -34,6 +41,26 @@ const PaymentsTable = () => {
     fetchPayments();
   }, []);
 
+  const applyFilters = () => {
+    const { name, email, status } = filters;
+    const filtered = payments.filter((payment) => {
+      return (
+        (!name || payment.name.toLowerCase().includes(name.toLowerCase())) &&
+        (!email || payment.email.toLowerCase().includes(email.toLowerCase())) &&
+        (!status || payment.status.toLowerCase() === status.toLowerCase())
+      );
+    });
+    setFilteredPayments(filtered);
+    setCurrentPage(1);
+  };
+
+  useEffect(() => {
+    applyFilters();
+  }, [filters]);
+
+  const handleFilterChange = (key, value) => {
+    setFilters((prev) => ({ ...prev, [key]: value }));
+  };
   const totalRecords = payments.length;
   const totalPages = Math.ceil(totalRecords / recordsPerPage);
   const startIndex = (currentPage - 1) * recordsPerPage;
@@ -47,6 +74,7 @@ const PaymentsTable = () => {
     setRecordsPerPage(parseInt(e.target.value));
     setCurrentPage(1);
   };
+  const [showFilters, setShowFilters] = useState(false);
 
   return (
     <PageContainer title="Payments" description="This is the Payments page">
@@ -56,6 +84,40 @@ const PaymentsTable = () => {
 
       <DashboardCard>
         <div className="flex flex-col justify-between">
+          <div className="flex">
+            <button
+              onClick={() => {
+                setShowFilters(!showFilters);
+              }}
+              className="mx-4 mt-4 justify-end rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
+            >
+              Filter
+            </button>
+          </div>
+          {showFilters && (
+            <Box mb={2} display="flex" gap={2} margin={2}>
+              <TextField
+                label="Filter by Name"
+                variant="filled"
+                size="small"
+                onChange={(e) => handleFilterChange("name", e.target.value)}
+                sx={{ borderRadius: "20px" }}
+              />
+              <TextField
+                label="Filter by Email"
+                variant="filled"
+                size="small"
+                onChange={(e) => handleFilterChange("email", e.target.value)}
+              />
+              <TextField
+                label="Filter by Status"
+                variant="filled"
+                size="small"
+                onChange={(e) => handleFilterChange("status", e.target.value)}
+              />
+            </Box>
+          )}
+
           <Table>
             <TableHead>
               <TableRow>
