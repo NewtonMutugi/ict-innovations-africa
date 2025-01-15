@@ -60,7 +60,7 @@ const EventTitle = ({ event }: { event: RemEvent }) => {
       });
     }
   };
-  const mainImage = encodeURI(`${BACKEND_URL}/${eventImages[0].imageUrl}`);
+  const mainImage = eventImages[0].imageUrl === null ? "" : encodeURI(`${BACKEND_URL}/${eventImages[0].imageUrl}`);
   console.log(mainImage);
   return (
     <Box

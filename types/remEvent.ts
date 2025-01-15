@@ -1,6 +1,6 @@
 type Tag = {
   id?: number;
-  tagName: string;
+  tagName?: string;
 };
 
 export type RemEventImage = {
