@@ -26,10 +26,10 @@ export default function Home() {
       <Hero />
       <AboutSectionTwo />
       <Services />
+      <Pricing />
       {/* <Brands /> */}
       <Testimonials />
       {/* <Events /> */}
-      {/* <Pricing /> */}
       {/* <AboutSectionOne /> */}
       {/* <Faq /> */}
       {/* <Blog /> */}
