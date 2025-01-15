@@ -65,9 +65,10 @@ const Pricing = () => {
               price={isMonthly ? pricing.monthlyPrice : pricing.yearlyPrice}
               duration={isMonthly ? "mo" : "yr"}
               subtitle={pricing.subtitle}
+              key={pricing.id}
             >
-              {pricing.features.map((feature) => (
-                <OfferList text={feature} status="active" />
+              {pricing.features.map((feature, id) => (
+                <OfferList text={feature} status="active" key={id} />
               ))}
             </PricingBox>
           ))}
