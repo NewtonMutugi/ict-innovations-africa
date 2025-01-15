@@ -34,12 +34,12 @@ const menuData = [
   //   path: "/#about",
   //   newTab: false,
   // },
-  // {
-  //   id: 5,
-  //   title: "Pricing",
-  //   path: "/#pricing",
-  //   newTab: false,
-  // },
+  {
+    id: 5,
+    title: "Pricing",
+    path: "/#pricing",
+    newTab: false,
+  },
   {
     id: 6,
     title: "Testimonials",
