@@ -3,8 +3,8 @@ const pricingData = [
     id: 1,
     title: "Basic",
     subtitle: "For small teams or office",
-    monthlyPrice: "$1",
-    yearlyPrice: "$10",
+    monthlyPrice: "Ksh 150",
+    yearlyPrice: "Ksh 1000",
     features: [
       "Unlimited Email Accounts",
       "10 GB Storage",
@@ -18,8 +18,8 @@ const pricingData = [
     id: 2,
     title: "Standard",
     subtitle: "For medium-sized businesses",
-    monthlyPrice: "$2",
-    yearlyPrice: "$25",
+    monthlyPrice: "Ksh 250",
+    yearlyPrice: "Ksh 2500",
     features: [
       "Unlimited Email Accounts",
       "25 GB Storage",
@@ -32,9 +32,9 @@ const pricingData = [
   {
     id: 3,
     title: "Advanced",
-    subtitle: "For larger businesses",
-    monthlyPrice: "$3",
-    yearlyPrice: "$35",
+    subtitle: "For large businesses",
+    monthlyPrice: "Ksh 300",
+    yearlyPrice: "Ksh 3500",
     features: [
       "Unlimited Email Accounts",
       "40 GB Storage",
@@ -47,9 +47,9 @@ const pricingData = [
   {
     id: 4,
     title: "Premium",
-    subtitle: "For larger businesses",
-    monthlyPrice: "$4",
-    yearlyPrice: "$55",
+    subtitle: "For larger enterprises",
+    monthlyPrice: "Ksh 500",
+    yearlyPrice: "Ksh 5500",
     features: [
       "Unlimited Email Accounts",
       "60 GB Storage",
