@@ -2,10 +2,31 @@ import { Menu } from "@/types/menu";
 import path from "path";
 
 const menuData = [
+  // {
+  //   id: 0,
+  //   title: "Products",
+  //   // path: "#home",
+  //   newTab: true,
+  //   submenu: [
+  //     {
+  //       id: 1,
+  //       title: "AI Website Generator",
+  //       path: "https://webgenerator.ai",
+  //       newTab: true,
+  //     },
+  //   ],
+  // },
   {
-    id: 0,
-    title: "Products",
-    // path: "#home",
+    id: 1,
+    title: "About Us",
+    path: "/#about",
+    newTab: false,
+    submenu: [],
+  },
+  {
+    id: 2,
+    title: "Products and Services",
+    // path: "/#services",
     newTab: true,
     submenu: [
       {
@@ -14,19 +35,19 @@ const menuData = [
         path: "https://webgenerator.ai",
         newTab: true,
       },
+      {
+        id: 2,
+        title: "Web Hosting",
+        path: "/#pricing",
+        newTab: false,
+      },
+      {
+        id: 0,
+        title: "Other Products & Services",
+        path: "/#services",
+        newTab: false,
+      },
     ],
-  },
-  {
-    id: 1,
-    title: "About Us",
-    path: "/#about",
-    newTab: false,
-  },
-  {
-    id: 2,
-    title: "Services",
-    path: "/#services",
-    newTab: false,
   },
   // {
   //   id: 4,
@@ -36,7 +57,7 @@ const menuData = [
   // },
   {
     id: 5,
-    title: "Pricing",
+    title: "Hosting",
     path: "/#pricing",
     newTab: false,
   },
