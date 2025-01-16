@@ -7,9 +7,9 @@ const PricingBox = (props: {
   packageName: string;
   subtitle: string;
   children: React.ReactNode;
-  key: number;
+  id: number;
 }) => {
-  const { price, duration, packageName, subtitle, children, key } = props;
+  const { price, duration, packageName, subtitle, children, id } = props;
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -41,7 +41,12 @@ const PricingBox = (props: {
           >
             Purchase now
           </button>
-          <HostingForm open={open} handleClose={handleClose} id={key} />
+          <HostingForm
+            open={open}
+            handleClose={handleClose}
+            id={id}
+            packageName={packageName}
+          />
         </div>
         <div>{children}</div>
         <div className="absolute bottom-0 right-0 z-[-1]">
