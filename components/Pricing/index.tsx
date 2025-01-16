@@ -65,6 +65,7 @@ const Pricing = () => {
               price={isMonthly ? pricing.monthlyPrice : pricing.yearlyPrice}
               duration={isMonthly ? "mo" : "yr"}
               subtitle={pricing.subtitle}
+              id={pricing.id}
               key={pricing.id}
             >
               {pricing.features.map((feature, id) => (
