@@ -1,4 +1,6 @@
+import Loading from "@/app/admin/dashboard/loading";
 import { BACKEND_URL } from "@/app/constants";
+import { CloseOutlined } from "@mui/icons-material";
 import {
   Button,
   Dialog,
@@ -19,6 +21,16 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
     hosting_plan_id: null,
   });
 
+  const resetForm = () => {
+    setFormData({
+      full_name: "",
+      email: "",
+      phone: "",
+      hosting_plan_id: null,
+    });
+  };
+
+  const [loading, setLoading] = useState(false);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -26,6 +38,22 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // Basic validation
+    if (
+      !formData.full_name.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim()
+    ) {
+      alert("Please fill in all fields");
+      return;
+    }
+    // Check for a valid email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert("Please provide a valid email address");
+      return;
+    }
+    setLoading(true);
     const updatedFormData = { ...formData, hosting_plan_id: Number(id) };
     const res = await fetch(`${BACKEND_URL}/api/initialize`, {
       method: "POST",
@@ -34,11 +62,14 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
     });
     const data = await res.json();
     localStorage.setItem("paymentReference", data.data.data.reference);
+    setLoading(false);
     window.location.href = data.data.data.authorization_url;
     handleClose();
   };
 
   useEffect(() => {
+    setLoading(false);
+    resetForm();
     const paymentReference = localStorage.getItem("paymentReference");
     if (paymentReference) {
       const fetchCallback = async () => {
@@ -72,6 +103,8 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
         open={open}
         onClose={(event, reason) => {
           if (reason !== "backdropClick") {
+            resetForm();
+            setLoading(false);
             handleClose();
           }
         }}
@@ -80,14 +113,23 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
           component: "form",
           onSubmit: handleSubmit,
         }}
+        sx={{ borderRadius: "10px", padding: "20px", margin: "20px" }}
       >
         {/* <DialogTitle>Purchase {packageName}</DialogTitle> */}
-        <Typography variant="h3" component="h2" className="p-4">
-          Proceed to purchase {packageName}
+        <CloseOutlined
+          onClick={() => {
+            resetForm();
+            setLoading(false);
+            handleClose();
+          }}
+          className="absolute right-2 top-2 m-2 cursor-pointer "
+        />
+        <Typography variant="h3" component="h2" className="mt-6 p-4">
+          Proceed to purchase {packageName} package
         </Typography>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this package, fill in the following details.
+            To purchase this package, fill in the following details.
           </DialogContentText>
 
           <div className="m-2">
@@ -142,12 +184,24 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
             />
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSubmit} type="submit">
-            Purchase
-          </Button>
-        </DialogActions>
+
+        {loading ? (
+          <DialogActions sx={{ justifyContent: "center", padding: "20px" }}>
+            <Loading />
+          </DialogActions>
+        ) : (
+          <DialogActions
+            sx={{ justifyContent: "space-between", padding: "20px" }}
+          >
+            <button
+              className="flex w-full items-center justify-center rounded-sm bg-primary p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
+              onClick={handleSubmit}
+              type="submit"
+            >
+              Purchase now
+            </button>
+          </DialogActions>
+        )}
       </Dialog>
     </div>
   );
