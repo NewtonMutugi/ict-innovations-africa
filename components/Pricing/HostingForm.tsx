@@ -10,7 +10,7 @@ import {
   DialogTitle,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const HostingForm = ({ open, handleClose, id, packageName }) => {
@@ -21,15 +21,14 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
     hosting_plan_id: null,
   });
 
-  const resetForm = () => {
+  const resetForm = useCallback(() => {
     setFormData({
       full_name: "",
       email: "",
       phone: "",
       hosting_plan_id: null,
     });
-  };
-
+  }, []);
   const [loading, setLoading] = useState(false);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -55,7 +54,7 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
     }
     setLoading(true);
     const updatedFormData = { ...formData, hosting_plan_id: Number(id) };
-    const res = await fetch(`${BACKEND_URL}/api/initialize`, {
+    const res = await fetch(`${BACKEND_URL}/api/hosting-payments/initialize`, {
       method: "POST",
       body: JSON.stringify(updatedFormData),
       headers: { "Content-Type": "application/json" },
@@ -68,35 +67,44 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
   };
 
   useEffect(() => {
-    setLoading(false);
-    resetForm();
-    const paymentReference = localStorage.getItem("paymentReference");
-    if (paymentReference) {
-      const fetchCallback = async () => {
-        const res = await fetch(
-          `${BACKEND_URL}/api/callback/${paymentReference}`,
-        );
-        const data = await res.json();
-        if (data.status === "success") {
-          Swal.fire({
-            icon: "success",
-            title: "Payment Successful",
-            text: "Thank you for subscribing to our hosting service. You will receive an email shortly regarding your hosting activation.",
-          });
-          localStorage.removeItem("paymentReference");
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "Payment Failed",
-            text: "An error occurred while processing your payment. Please try again.",
-          });
+    const initializePaymentCallback = async () => {
+      try {
+        const paymentReference = localStorage.getItem("paymentReference");
+        if (paymentReference) {
+          const res = await fetch(
+            `${BACKEND_URL}/api/hosting-payments/callback/${paymentReference}`,
+          );
+
+          if (res.ok) {
+            Swal.fire({
+              icon: "success",
+              title: "Payment Successful",
+              text: "Thank you for subscribing to our hosting service. You will receive an email shortly regarding your hosting activation.",
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Payment Failed",
+              text: "An error occurred while processing your payment. Please try again.",
+            });
+          }
+
           localStorage.removeItem("paymentReference");
         }
-      };
-      fetchCallback();
-    }
-  }, []);
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: `Something went wrong: ${error.message}`,
+        });
+      } finally {
+        resetForm();
+        setLoading(false);
+      }
+    };
 
+    initializePaymentCallback();
+  }, []);
   return (
     <div>
       <Dialog
