@@ -85,6 +85,22 @@ const PaymentsTable = () => {
     return [...new Set(status)];
   };
 
+  const removeDuplicatePlans = (payments) => {
+    const status = payments.map((payment) => payment.hosting_plan.title);
+    return [...new Set(status)];
+  };
+
+  const clearFilters = () => {
+    setFilters({
+      full_name: "",
+      email: "",
+      status: "",
+      plan: "",
+    });
+    setFilteredPayments(payments);
+    setCurrentPage(1);
+  };
+
   return (
     <PageContainer title="Payments" description="This is the Payments page">
       <Typography variant="h1" className="mb-4 ml-4">
@@ -127,9 +143,8 @@ const PaymentsTable = () => {
                 }}
                 onChange={(e) => handleFilterChange("email", e.target.value)}
               />
-              <input
-                type="text"
-                placeholder="Filter by plan"
+              <select
+                onChange={(e) => handleFilterChange("plan", e.target.value)}
                 className="form-control rounded-xl"
                 style={{
                   width: "200px",
@@ -137,8 +152,16 @@ const PaymentsTable = () => {
                   fontSize: "0.875rem",
                   height: "40px",
                 }}
-                onChange={(e) => handleFilterChange("plan", e.target.value)}
-              />
+              >
+                <option value="" disabled selected>
+                  Filter by Plan
+                </option>
+                {removeDuplicatePlans(payments).map((plan: string) => (
+                  <option key={plan} value={plan}>
+                    {plan}
+                  </option>
+                ))}
+              </select>
               <select
                 onChange={(e) => handleFilterChange("status", e.target.value)}
                 className="form-control rounded-xl"
@@ -163,6 +186,12 @@ const PaymentsTable = () => {
                 onClick={applyFilters}
               >
                 Apply Filters
+              </button>
+              <button
+                className="rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
+                onClick={clearFilters}
+              >
+                Clear Filters
               </button>
             </Box>
           )}

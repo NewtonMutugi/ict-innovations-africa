@@ -13,8 +13,6 @@ import {
   TableHead,
   TableRow,
   Chip,
-  TextField,
-  Button,
 } from "@mui/material";
 import { Select, MenuItem } from "@mui/material";
 
@@ -81,6 +79,16 @@ const PaymentsTable = () => {
     return [...new Set(status)];
   };
 
+  const clearFilters = () => {
+    setFilters({
+      name: "",
+      email: "",
+      status: "",
+    });
+    setFilteredPayments(payments);
+    setCurrentPage(1);
+  };
+
   return (
     <PageContainer title="Payments" description="This is the Payments page">
       <Typography variant="h1" className="mb-4 ml-4">
@@ -123,18 +131,6 @@ const PaymentsTable = () => {
                 }}
                 onChange={(e) => handleFilterChange("email", e.target.value)}
               />
-              {/* <input
-                type="text"
-                placeholder="Filter by Status"
-                className="form-control rounded-xl"
-                style={{
-                  width: "200px",
-                  padding: "6px 8px",
-                  fontSize: "0.875rem",
-                  height: "40px",
-                }}
-                onChange={(e) => handleFilterChange("status", e.target.value)}
-              /> */}
               <select
                 onChange={(e) => handleFilterChange("status", e.target.value)}
                 className="form-control rounded-xl"
@@ -159,6 +155,12 @@ const PaymentsTable = () => {
                 onClick={applyFilters}
               >
                 Apply Filters
+              </button>
+              <button
+                className="rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
+                onClick={clearFilters}
+              >
+                Clear Filters
               </button>
             </Box>
           )}
