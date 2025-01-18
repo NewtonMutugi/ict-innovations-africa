@@ -76,6 +76,11 @@ const PaymentsTable = () => {
     setCurrentPage(1);
   };
 
+  const removeDuplicateStatus = (payments) => {
+    const status = payments.map((payment) => payment.status);
+    return [...new Set(status)];
+  };
+
   return (
     <PageContainer title="Payments" description="This is the Payments page">
       <Typography variant="h1" className="mb-4 ml-4">
@@ -118,7 +123,7 @@ const PaymentsTable = () => {
                 }}
                 onChange={(e) => handleFilterChange("email", e.target.value)}
               />
-              <input
+              {/* <input
                 type="text"
                 placeholder="Filter by Status"
                 className="form-control rounded-xl"
@@ -129,7 +134,26 @@ const PaymentsTable = () => {
                   height: "40px",
                 }}
                 onChange={(e) => handleFilterChange("status", e.target.value)}
-              />
+              /> */}
+              <select
+                onChange={(e) => handleFilterChange("status", e.target.value)}
+                className="form-control rounded-xl"
+                style={{
+                  width: "200px",
+                  padding: "6px 8px",
+                  fontSize: "0.875rem",
+                  height: "40px",
+                }}
+              >
+                <option value="" disabled selected>
+                  Filter by Status
+                </option>
+                {removeDuplicateStatus(payments).map((status: string) => (
+                  <option key={status} value={status}>
+                    {status}
+                  </option>
+                ))}
+              </select>
               <button
                 className="rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
                 onClick={applyFilters}
