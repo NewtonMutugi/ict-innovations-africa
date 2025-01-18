@@ -79,7 +79,7 @@ const PaymentsTable = () => {
   return (
     <PageContainer title="Payments" description="This is the Payments page">
       <Typography variant="h1" className="mb-4 ml-4">
-        All Payments
+        WebGenerator.ai Payments
       </Typography>
 
       <DashboardCard>
