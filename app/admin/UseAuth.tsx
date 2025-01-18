@@ -35,20 +35,23 @@ const useAuth = () => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      testTokenValidity(token);
-      setIsAuthenticated(true);
-    } else {
-      Swal.fire({
-        title: "Unauthorized",
-        text: "You are not authorized to access this page. Please sign in.",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
-      router.push("/admin/signin");
-    }
-  }, [router]);
+    const checkAuth = async () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        testTokenValidity(token);
+      } else {
+        setIsAuthenticated(false);
+        Swal.fire({
+          title: "Unauthorized",
+          text: "You are not authorized to access this page. Please sign in.",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+        router.push("/admin/signin");
+      }
+    };
+    checkAuth();
+  }, []);
 
   return isAuthenticated;
 };
