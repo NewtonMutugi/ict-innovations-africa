@@ -47,6 +47,8 @@ const useAuth = () => {
           icon: "error",
           confirmButtonText: "Ok",
         });
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
         router.push("/admin/signin");
       }
     };
