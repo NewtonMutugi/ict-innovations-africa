@@ -45,9 +45,15 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title: "View Payments",
+    title: "WebGenerator.ai payments",
     icon: IconDatabaseDollar,
-    href: "/admin/dashboard/payments",
+    href: "/admin/dashboard/web-payments",
+  },
+  {
+    id: uniqueId(),
+    title: "Hosting payments",
+    icon: IconDatabaseDollar,
+    href: "/admin/dashboard/hosting-payments",
   },
   // {
   //   navlabel: true,
