@@ -24,9 +24,10 @@ const PaymentsTable = () => {
   const [recordsPerPage, setRecordsPerPage] = useState(24);
   const [filteredPayments, setFilteredPayments] = useState([]);
   const [filters, setFilters] = useState({
-    name: "",
+    full_name: "",
     email: "",
     status: "",
+    plan: "",
   });
   const [showFilters, setShowFilters] = useState(false);
 
@@ -45,12 +46,15 @@ const PaymentsTable = () => {
   }, []);
 
   const applyFilters = () => {
-    const { name, email, status } = filters;
+    const { full_name, email, status, plan } = filters;
     const filtered = payments.filter((payment) => {
       return (
-        (!name || payment.name.toLowerCase().includes(name.toLowerCase())) &&
+        (!full_name ||
+          payment.full_name.toLowerCase().includes(full_name.toLowerCase())) &&
         (!email || payment.email.toLowerCase().includes(email.toLowerCase())) &&
-        (!status || payment.status.toLowerCase() === status.toLowerCase())
+        (!status || payment.status.toLowerCase() === status.toLowerCase()) &&
+        (!plan ||
+          payment.hosting_plan.title.toLowerCase().includes(plan.toLowerCase()))
       );
     });
     setFilteredPayments(filtered);
@@ -74,6 +78,11 @@ const PaymentsTable = () => {
   const handleRecordsChange = (e) => {
     setRecordsPerPage(parseInt(e.target.value));
     setCurrentPage(1);
+  };
+
+  const removeDuplicateStatus = (payments) => {
+    const status = payments.map((payment) => payment.status);
+    return [...new Set(status)];
   };
 
   return (
@@ -120,7 +129,7 @@ const PaymentsTable = () => {
               />
               <input
                 type="text"
-                placeholder="Filter by Status"
+                placeholder="Filter by plan"
                 className="form-control rounded-xl"
                 style={{
                   width: "200px",
@@ -128,8 +137,27 @@ const PaymentsTable = () => {
                   fontSize: "0.875rem",
                   height: "40px",
                 }}
-                onChange={(e) => handleFilterChange("status", e.target.value)}
+                onChange={(e) => handleFilterChange("plan", e.target.value)}
               />
+              <select
+                onChange={(e) => handleFilterChange("status", e.target.value)}
+                className="form-control rounded-xl"
+                style={{
+                  width: "200px",
+                  padding: "6px 8px",
+                  fontSize: "0.875rem",
+                  height: "40px",
+                }}
+              >
+                <option value="" disabled selected>
+                  Filter by Status
+                </option>
+                {removeDuplicateStatus(payments).map((status: string) => (
+                  <option key={status} value={status}>
+                    {status}
+                  </option>
+                ))}
+              </select>
               <button
                 className="rounded-lg bg-primary px-6 py-2 text-white hover:bg-primary/90"
                 onClick={applyFilters}
@@ -146,8 +174,7 @@ const PaymentsTable = () => {
                 <TableCell>Name</TableCell>
                 <TableCell>Email</TableCell>
                 <TableCell>Phone</TableCell>
-                <TableCell>Country</TableCell>
-                <TableCell>Amount</TableCell>
+                <TableCell>Plan</TableCell>
                 <TableCell>Status</TableCell>
                 <TableCell>Payment Reference</TableCell>
                 <TableCell>Created At</TableCell>
@@ -158,11 +185,10 @@ const PaymentsTable = () => {
                 paginatedPayments.map((payment, index) => (
                   <TableRow key={payment.id}>
                     <TableCell>{startIndex + index + 1}</TableCell>
-                    <TableCell>{payment.name}</TableCell>
+                    <TableCell>{payment.full_name}</TableCell>
                     <TableCell>{payment.email}</TableCell>
                     <TableCell>{payment.phone}</TableCell>
-                    <TableCell>{payment.country}</TableCell>
-                    <TableCell>{payment.amount}</TableCell>
+                    <TableCell>{payment.hosting_plan.title}</TableCell>
                     <TableCell>
                       <Chip
                         label={payment.status}
