@@ -44,7 +44,7 @@ const menuData = [
       {
         id: 2,
         title: "Bulk SMS",
-        path: "/#pricing",
+        path: "/bulk-sms",
         newTab: false,
       },
       {
