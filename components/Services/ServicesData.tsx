@@ -2,7 +2,7 @@ import { Feature } from "@/types/feature";
 
 const ServicesData: Feature[] = [
   {
-    id: 1,
+    id: 0,
     icon: (
       <svg width="40" height="41" viewBox="0 0 40 41" className="fill-current">
         <path
@@ -15,6 +15,22 @@ const ServicesData: Feature[] = [
     title: "Custom Website Design:",
     paragraph:
       "We craft unique, brand-focused websites that capture each client’s identity, emphasizing user engagement, intuitive navigation, and lasting visual impact.",
+  },
+  {
+    id: 7,
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
+        <path
+          opacity="0.5"
+          d="M20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0ZM20 36C11.1634 36 4 28.8366 4 20C4 11.1634 11.1634 4 20 4C28.8366 4 36 11.1634 36 20C36 28.8366 28.8366 36 20 36Z"
+        />
+        <path d="M20 8C13.3726 8 8 13.3726 8 20C8 26.6274 13.3726 32 20 32C26.6274 32 32 26.6274 32 20C32 13.3726 26.6274 8 20 8ZM20 28C15.5817 28 12 24.4183 12 20C12 15.5817 15.5817 12 20 12C24.4183 12 28 15.5817 28 20C28 24.4183 24.4183 28 20 28Z" />
+        <path d="M20 16C17.7909 16 16 17.7909 16 20C16 22.2091 17.7909 24 20 24C22.2091 24 24 22.2091 24 20C24 17.7909 22.2091 16 20 16Z" />
+      </svg>
+    ),
+    title: "Bulk SMS Solutions",
+    paragraph:
+      "Our bulk SMS service enables businesses to send high-volume, targeted messages to their audience, ensuring effective communication, engagement, and timely delivery for marketing campaigns, alerts, and notifications.",
   },
   {
     id: 1,
@@ -32,7 +48,7 @@ const ServicesData: Feature[] = [
       "Our hosting services offer high availability, security, and fast performance, with scalable solutions that adapt as your business grows.",
   },
   {
-    id: 1,
+    id: 2,
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
         <path
@@ -47,7 +63,7 @@ const ServicesData: Feature[] = [
       "Our LMS solutions enable efficient curriculum delivery, assessment, and student engagement, enhancing education and streamlining administration for diverse institutions.",
   },
   {
-    id: 1,
+    id: 3,
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
         <path
@@ -62,7 +78,7 @@ const ServicesData: Feature[] = [
       "We consult on digital learning strategies that align with both traditional and modern educational standards, helping institutions integrate technology seamlessly into teaching methodologies and day-to-day operations.",
   },
   {
-    id: 1,
+    id: 4,
     icon: (
       <svg width="40" height="42" viewBox="0 0 40 42" className="fill-current">
         <path
@@ -77,7 +93,7 @@ const ServicesData: Feature[] = [
       "We help organizations use AI to automate tasks, enhancing efficiency and enabling focus on strategic goals through data processing, customer service, and predictive analysis.",
   },
   {
-    id: 1,
+    id: 5,
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
         <path
@@ -92,7 +108,7 @@ const ServicesData: Feature[] = [
       "We develop tailored AI strategies aligned with each client’s business goals, ensuring effective and scalable adoption. Our experts assess operations to uncover AI-driven growth opportunities.",
   },
   {
-    id: 1,
+    id: 6,
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
         <path
