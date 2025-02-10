@@ -42,6 +42,12 @@ const menuData = [
         newTab: false,
       },
       {
+        id: 2,
+        title: "Bulk SMS",
+        path: "/#pricing",
+        newTab: false,
+      },
+      {
         id: 0,
         title: "Other Products & Services",
         path: "/#services",
