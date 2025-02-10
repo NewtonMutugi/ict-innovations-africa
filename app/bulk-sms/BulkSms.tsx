@@ -30,13 +30,19 @@ const BulkSms = () => {
               ))}
             </div>
           </div>
-          <div className="my-6 mt-8 flex w-full items-center justify-center">
+          <div className="my-6 mt-8 flex w-full flex-col items-center justify-center">
             <button
               className="dark:hadow-submit-dark items-center justify-center rounded-lg bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90"
               onClick={handleLearnClick}
             >
-              Learn More
+              Login to your Bulk SMS account
             </button>
+            <p className="mt-4 text-center text-sm text-body-color">
+              Don’t have a Bulk SMS account?{" "}
+              <a href="https://forms.gle/wmLJ73PoQgSGLoU36" target="_blank">
+                Click here to register.
+              </a>
+            </p>
           </div>
         </div>
       </section>
