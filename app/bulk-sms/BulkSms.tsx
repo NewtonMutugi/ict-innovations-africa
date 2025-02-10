@@ -7,10 +7,7 @@ import SingleFeature from "@/components/Services/SingleServices";
 
 const BulkSms = () => {
   const handleLearnClick = () => {
-    window.open(
-      "https://dstr.connectbind.com/rsms/client-login.php?lang=en",
-      "_blank",
-    );
+    window.open("https://dstr.connectbind.com/websms/ict", "_blank");
   };
   return (
     <>
@@ -37,9 +34,13 @@ const BulkSms = () => {
             >
               Login to your Bulk SMS account
             </button>
-            <p className="mt-4 text-center text-sm text-body-color">
+            <p className="text-md mt-4 text-center text-body-color">
               Don’t have a Bulk SMS account?{" "}
-              <a href="https://forms.gle/wmLJ73PoQgSGLoU36" target="_blank">
+              <a
+                href="https://forms.gle/wmLJ73PoQgSGLoU36"
+                target="_blank"
+                className="text-primary"
+              >
                 Click here to register.
               </a>
             </p>
