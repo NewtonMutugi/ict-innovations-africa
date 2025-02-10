@@ -1,16 +1,11 @@
-import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
-import Events from "@/components/Events";
-import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
-import Video from "@/components/Video";
 import { Metadata } from "next";
-import Faq from "@/components/Faq";
 
 export const metadata: Metadata = {
   title: "ICT Innovations Africa",
