@@ -53,7 +53,7 @@ const useAuth = () => {
       }
     };
     checkAuth();
-  }, []);
+  });
 
   return isAuthenticated;
 };

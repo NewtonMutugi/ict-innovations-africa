@@ -34,11 +34,11 @@ const Footer = () => {
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
                   At ICT Consultants Ltd, we are passionate about transforming
-                  organizations through technology. Whether you’re looking to
+                  organizations through technology. Whether you&apos;re looking to
                   establish an online presence, automate workflows, or implement
                   a forward-thinking AI strategy, our team is here to help you
                   every step of the way. Partner with us to drive innovation,
-                  achieve scalability, and future-proof your business in today’s
+                  achieve scalability, and future-proof your business in today&apos;s
                   dynamic digital environment.
                 </p>
                 <div className="flex items-center">
@@ -60,7 +60,7 @@ const Footer = () => {
                     </svg>
                   </a>
                   {/* Twitter */}
-                  <a
+                  <Link
                     href="/"
                     aria-label="social-link"
                     className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
@@ -74,9 +74,9 @@ const Footer = () => {
                     >
                       <path d="M18.3 5.7a1 1 0 0 0-1.4 0L12 10.6 7.1 5.7a1 1 0 0 0-1.4 1.4l4.9 4.9-4.9 4.9a1 1 0 1 0 1.4 1.4l4.9-4.9 4.9 4.9a1 1 0 0 0 1.4-1.4l-4.9-4.9 4.9-4.9a1 1 0 0 0 0-1.4z" />
                     </svg>
-                  </a>
+                  </Link>
                   {/* Youtube */}
-                  <a
+                  <Link
                     href="/"
                     aria-label="social-link"
                     className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
@@ -89,7 +89,7 @@ const Footer = () => {
                     >
                       <path d="M17.5058 2.07119C17.3068 1.2488 16.7099 0.609173 15.9423 0.395963C14.5778 7.26191e-08 9.0627 0 9.0627 0C9.0627 0 3.54766 7.26191e-08 2.18311 0.395963C1.41555 0.609173 0.818561 1.2488 0.619565 2.07119C0.25 3.56366 0.25 6.60953 0.25 6.60953C0.25 6.60953 0.25 9.68585 0.619565 11.1479C0.818561 11.9703 1.41555 12.6099 2.18311 12.8231C3.54766 13.2191 9.0627 13.2191 9.0627 13.2191C9.0627 13.2191 14.5778 13.2191 15.9423 12.8231C16.7099 12.6099 17.3068 11.9703 17.5058 11.1479C17.8754 9.68585 17.8754 6.60953 17.8754 6.60953C17.8754 6.60953 17.8754 3.56366 17.5058 2.07119ZM7.30016 9.44218V3.77687L11.8771 6.60953L7.30016 9.44218Z" />
                     </svg>
-                  </a>
+                  </Link>
                   {/* LinkedIn */}
                   <a
                     href="https://www.linkedin.com/company/ict-innovations-africa/"
@@ -118,28 +118,28 @@ const Footer = () => {
                 </h2>
                 <ul>
                   <li>
-                    <a
+                    <Link
                       href="/#Home"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/#services"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       About us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/#"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Products
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

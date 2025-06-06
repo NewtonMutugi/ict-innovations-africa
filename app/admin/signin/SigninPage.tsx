@@ -52,6 +52,7 @@ const SigninPage = () => {
       // });
       // router.push("/admin/signin");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
   if (isAuthenticated) {

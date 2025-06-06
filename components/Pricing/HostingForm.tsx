@@ -104,6 +104,7 @@ const HostingForm = ({ open, handleClose, id, packageName }) => {
     };
 
     initializePaymentCallback();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>

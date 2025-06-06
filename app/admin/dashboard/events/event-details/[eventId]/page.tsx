@@ -3,17 +3,16 @@ import { BACKEND_URL } from "@/app/constants";
 import Countdown from "@/components/Events/countdown";
 import EventImages from "@/components/Events/EventImages";
 import TagButton from "@/components/Events/TagButton";
-import { Event } from "@/types/event";
 import { Typography } from "@mui/material";
 import { useParams, useRouter } from "next/navigation";
 import React, { use, useEffect, useState } from "react";
-import UpdateEventDialog from "./update/UpdateEventDialog";
-import Router from "next/router";
 
-const EventDetailsPage = async () => {
+
+// eslint-disable-next-line @next/next/no-async-client-component
+const EventDetailsPage = () => {
   const params = useParams();
   const eventId = params.eventId;
-  const [open, setOpen] = useState(true);
+  // const [open, setOpen] = useState(true);
   const router = useRouter();
   const [eventData, setEventData] = useState(null);
 
