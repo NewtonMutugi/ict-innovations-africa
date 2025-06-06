@@ -30,10 +30,16 @@ const menuData = [
     newTab: true,
     submenu: [
       {
-        id: 1,
-        title: "AI Website Generator",
+        id: 0,
+        title: "Website Generator",
         path: "https://webgenerator.ai",
         newTab: true,
+      },
+      {
+        id: 1,
+        title: "Presentation Generator",
+        path: "/presentation-generator",
+        newTab: false,
       },
       {
         id: 2,
@@ -42,13 +48,13 @@ const menuData = [
         newTab: false,
       },
       {
-        id: 2,
+        id: 3,
         title: "Bulk SMS",
         path: "/bulk-sms",
         newTab: false,
       },
       {
-        id: 0,
+        id: 4,
         title: "Other Products & Services",
         path: "/#services",
         newTab: false,
