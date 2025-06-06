@@ -1,4 +1,3 @@
-
 import DashboardCard from "@/app/admin/dashboard/components/shared/DashboardCard";
 import {
   Timeline,
@@ -18,9 +17,6 @@ const RecentTransactions = () => {
       <>
         <Timeline
           className="theme-timeline"
-          nonce={undefined}
-          onResize={undefined}
-          onResizeCapture={undefined}
           sx={{
             p: 0,
             mb: '-40px',
